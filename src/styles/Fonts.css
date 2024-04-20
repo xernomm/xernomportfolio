@@ -80,4 +80,12 @@
       opacity: 0;
     }
   }
+
+  @media (max-width: 767px)
+  {
+    .smTextCenter
+    {
+      text-align: center !important;
+    }
+  }
   

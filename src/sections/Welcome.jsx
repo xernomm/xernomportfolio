@@ -91,21 +91,21 @@ export const Welcome = ({ scrollToAboutMe }) => {
                     <div className="col-lg-5 col-sm-12 ">
 
                       <div className="changeTextBox">
-                        <h1 className="primary display-3 fw-bold glowing-text">
+                        <h1 className="smTextCenter primary display-3 fw-bold glowing-text">
                           {text} <span className='text-white blink'>|</span>
                           </h1>
                           <hr />
-                          <p className="primary lead display-6">
+                          <p className="primary lead display-6 smTextCenter">
                             
 
-                              <span className='text-white display-6'>And I'm a </span>{texts[textIndex]}
+                              <span className='text-white display-6 '>And I'm a </span>{texts[textIndex]}
                         </p>
                       </div>
                         
                         <div className="mt-5">
                             <div className="d-lg-flex align-items center">
                                 <div className="d-flex justify-content-center col-lg-12 col-sm-12">
-                                    <Button className="get-started-btn col-lg-10 col-sm-12" onClick={handleDownloadClick}>
+                                    <Button className="get-started-btn col-12" onClick={handleDownloadClick}>
                                         Download my CV <I.Download className="ms-1 mb-1"/> 
                                     </Button>
                                 
@@ -113,7 +113,7 @@ export const Welcome = ({ scrollToAboutMe }) => {
                             </div>
                             <div className="d-lg-flex align-items center mt-3">
                                 <div className="d-flex justify-content-center col-lg-12 col-sm-12">
-                                    <Button className="secondary-btn col-lg-10 col-sm-12" onClick={() => scrollToSection('connect')}>
+                                    <Button className="secondary-btn col-12" onClick={() => scrollToSection('connect')}>
                                         Contact Me <I.EnvelopeFill className="ms-1 mb-1"/> 
                                     </Button>
                                 </div>

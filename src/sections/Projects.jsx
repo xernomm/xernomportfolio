@@ -83,7 +83,7 @@ export const Projects = () => {
                         These are a few projects i've been working on alone as a full-stack web-developer, and a few projects are still in development. 
                     </p>
                     <hr />
-                    <p className="mt-5 text-white fw-bold display-5 ">
+                    <p className="mt-5 text-white fw-bold display-5 smTextCenter">
                                 Finished Projects
                             </p>
                     <div className="d-lg-flex justify-content-center">
@@ -122,7 +122,7 @@ export const Projects = () => {
                     <br />
                     <hr />
                     <br />
-                    <p className="mt-5 text-white fw-bold display-5">
+                    <p className="mt-5 text-white fw-bold display-5 smTextCenter">
                                 In development
                             </p>
                     <div className="d-lg-flex justify-content-center">
