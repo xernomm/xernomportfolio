@@ -91,7 +91,7 @@ export const Projects = () => {
                             <Lottie animationData={coding1} />
 
                         </div>
-                        <div className="projectSets col-lg-7 col-sm-12">
+                        <div className="projectSets col-lg-6 col-sm-11">
                             {finishedProjects.map((project, index) => (
                             <div className="project col-12" key={index}>
                                 <div className="projectBg">
@@ -126,7 +126,7 @@ export const Projects = () => {
                                 In development
                             </p>
                     <div className="d-lg-flex justify-content-center">
-                    <div className="projectSets col-lg-6 col-sm-12">
+                    <div className="projectSets col-lg-5 col-sm-11">
                             {inDevelopmentList.map((project, index) => (
                             <div className="projectInDev col-12" key={index}>
                                 <div className="projectBg">

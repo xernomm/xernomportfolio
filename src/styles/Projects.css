@@ -104,7 +104,13 @@
    
     .project, .projectInDev {
       height: 75%;
-      width: 80% !important;
+      width: 75% !important;
+    }
+
+    .project
+    {
+      margin-bottom: 25%;
+
     }
 
     :root {
