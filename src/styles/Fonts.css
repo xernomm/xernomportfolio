@@ -1,0 +1,83 @@
+.px35
+{
+    font-size: 35px;
+}
+
+.px120
+{
+    font-size: 120px;
+}
+
+.px80
+{
+    font-size: 80px;
+}
+
+.px50
+{
+    font-size: 50px;
+}
+
+.px16
+{
+    font-size: 16px;
+}
+
+.px18
+{
+    font-size: 18px;
+}
+
+.primary{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    color: #ffc451;
+}
+
+.glowing-text {
+    color: #fff; /* Set the text color */
+    text-shadow: 0 0 10px #ffc551c7, 0 0 20px #ffc551c7, 0 0 30px #ffc551c7, 0 0 40px #ffc551c7, 0 0 50px #ffc551c7, 0 0 60px #ffc551c7, 0 0 70px #ffc551c7; /* Set the glow effect using multiple shadows with increasing blur radius */
+    animation: glow 2s ease-in-out infinite; /* Apply animation */
+  }
+  
+  /* Define the glow animation */
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 10px #ffc551c7, 0 0 20px #ffc551c7, 0 0 30px #ffc551c7, 0 0 40px #ffc551c7, 0 0 50px #ffc551c7, 0 0 60px #ffc551c7, 0 0 70px #ffc551c7;
+    }
+    100% {
+      text-shadow: 0 0 20px #ffc551c7, 0 0 30px #ffc551c7, 0 0 40px #ffc551c7, 0 0 50px #ffc551c7, 0 0 60px #ffc551c7, 0 0 70px #ffc551c7, 0 0 80px #ffc551c7;
+    }
+  }
+  
+
+.typing {
+    border-right: 3px solid; /* Create a cursor effect */
+    animation: typing 1s steps(40, end), blink-caret 0.75s infinite;
+  }
+  
+  /* Typing animation */
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  .blink {
+    animation: blink-caret 0.75s infinite;
+    transform: translateX(16%) !important;
+    font-weight: 100 !important;
+  }
+  
+  @keyframes blink-caret {
+    from, to {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+  

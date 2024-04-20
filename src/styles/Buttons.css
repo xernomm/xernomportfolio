@@ -1,0 +1,67 @@
+ .get-started-btn {
+    color: #ffc451 !important;
+    border-radius: 4px !important;
+    padding: 7px 25px 8px 25px !important;
+    white-space: nowrap !important;
+    transition: 0.3s !important;
+    font-size: 15px !important;
+    display: inline-block !important;
+    background: #343a4000 !important;
+    border: 2px solid #ffc451 !important;
+  }
+  
+  .get-started-btn:hover {
+    background: #ffbb38 !important;
+    color: #343a40 !important;
+  }
+
+  .secondary-btn {
+    color: #aeacac !important;
+    border-radius: 4px !important;
+    padding: 7px 25px 8px 25px !important;
+    white-space: nowrap !important;
+    transition: 0.3s !important;
+    font-size: 15px !important;
+    display: inline-block !important;
+    background: #1B2328 !important;
+    border: 1px solid #aeacac !important;
+  }
+  
+  .secondary-btn:hover {
+    background: #353535 !important;
+    color: #ffffff !important;
+  }
+
+  .searchBtn
+  {
+    height: 100% !important;
+    border: none !important;
+  }
+
+  .outline-white
+  {
+    color: #dbdbdb !important;
+    border-radius: 8px !important;
+    padding: 25px !important;
+    white-space: nowrap !important;
+    transition: 0.2s !important;
+    font-size: 24px !important;
+    display: inline-block !important;
+    background: #1b232800 !important;
+    border: 1px solid #dbdbdb !important;
+  }
+
+  .outline-white:hover
+  {
+    color: #dbdbdb !important;
+    border-radius: 8px !important;
+    padding: 25px !important;
+    white-space: nowrap !important;
+    transition: 0.2s !important;
+    font-size: 30px !important;
+    display: inline-block !important;
+    background: #21292e5d !important;
+    border: 1px solid #dbdbdb !important;
+  }
+
+  

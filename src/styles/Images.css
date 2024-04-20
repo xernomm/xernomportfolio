@@ -1,0 +1,67 @@
+.navbarImg
+{
+    height: 40px;
+    margin-right: 20px;
+}
+
+.contactMeImg
+{
+    border-radius: 23% 36% ;
+    transition: border-radius 0.5s;
+}
+
+.contactMeImg:hover
+{
+    transition: border-radius 0.5s;
+    border-radius: 50px ;
+}
+
+.aboutMeImg
+{
+    border-radius: 10px 100px / 120px; 
+    transition: all ease 0.9s;
+
+}
+
+@media (max-width: 767px) {
+    .aboutMeImg {
+        display: none;
+    }
+    .contactMeImg {
+        display: none;
+    }
+    .introVid
+    {
+        width: 500px;
+        height: 400px;
+    }
+    .marginBody
+    {
+        margin-left: 0% !important;
+        margin-right: 0% !important;
+        padding-left: 0% !important;
+        padding-right: 0% !important;
+    }
+}
+
+.aboutMeImg:hover
+{
+    transition: border-radius 0.5s;
+}
+
+.hovered {
+    transform: scale(1);
+    border-radius: 50% 20% / 10% 40% ;
+  }
+
+.carouselImg
+{
+    border-radius: 40px;
+    opacity: 50%;
+    height: 50%;
+}
+
+.carousel
+{
+    height: 400px !important;
+}

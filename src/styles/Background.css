@@ -1,0 +1,34 @@
+.newRow
+{
+    margin-top: 1% !important;
+}
+
+.overflowX
+{
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.footer
+{
+    width: 100% !important;
+}
+
+.changeTextBox
+{
+    height: 300px !important;
+}
+
+@media (max-width: 767px)
+{
+    .newRow
+    {
+        margin-top: 60px !important;
+    }
+    .changeTextBox
+    {
+        height: 200px !important;
+    }
+}
+
+
