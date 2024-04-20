@@ -70,7 +70,9 @@ export const ContactUs = () => {
           </div>
           <div className="col-lg-7 col-sm-12">
             <p className="text-white lead mb-4">
+              <span className='primary'>
               Feel free to connect me!
+                </span> 
               
               <br />
 

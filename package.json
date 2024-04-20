@@ -1,5 +1,5 @@
 {
-  "name": "rafaelportfolio",
+  "name": "xernomportfolio",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,7 +21,7 @@
     "sweetalert2": "^11.10.6",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://xernomm.github.io/rafaelportfolio/",
+  "homepage": "https://xernomm.github.io/xernomportfolio/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

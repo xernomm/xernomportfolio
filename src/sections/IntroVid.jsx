@@ -42,9 +42,9 @@ export const IntroVid = React.forwardRef((props, ref) =>
                             <Button href="https://www.youtube.com/embed/MAMQ9DTyHTw?si=AQbtWgNZXQgvId34" target="_blank" className="get-started-btn mt-2 col-12">
                                 View on YouTube <I.Youtube className="lead ms-1 mb-1"/>
                             </Button>
-                            <Button onClick={handleDownloadClick} className="secondary-btn mt-2 col-12">
+                            {/* <Button onClick={handleDownloadClick} className="secondary-btn mt-2 col-12">
                                 Download my introduction video <I.Download className="lead ms-1 mb-1"/>
-                            </Button>
+                            </Button> */}
                         </div>
                     </div>
 

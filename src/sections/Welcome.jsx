@@ -44,6 +44,12 @@ export const Welcome = ({ scrollToAboutMe }) => {
         }
       }, [currentIndex, isDelaying, words]);
       
+      const scrollToSection = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     const handleEmailClick = () => {
         const email = 'rafaelrichie03@gmail.com';
@@ -99,15 +105,15 @@ export const Welcome = ({ scrollToAboutMe }) => {
                         <div className="mt-5">
                             <div className="d-lg-flex align-items center">
                                 <div className="d-flex justify-content-center col-lg-12 col-sm-12">
-                                    <Button className="get-started-btn col-10" onClick={handleDownloadClick}>
+                                    <Button className="get-started-btn col-lg-10 col-sm-12" onClick={handleDownloadClick}>
                                         Download my CV <I.Download className="ms-1 mb-1"/> 
                                     </Button>
                                 
                                 </div>
                             </div>
-                            <div className="d-lg-flex align-items center mt-2">
+                            <div className="d-lg-flex align-items center mt-3">
                                 <div className="d-flex justify-content-center col-lg-12 col-sm-12">
-                                    <Button className="secondary-btn col-10" onClick={handleEmailClick}>
+                                    <Button className="secondary-btn col-lg-10 col-sm-12" onClick={() => scrollToSection('connect')}>
                                         Contact Me <I.EnvelopeFill className="ms-1 mb-1"/> 
                                     </Button>
                                 </div>
