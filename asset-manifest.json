@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/xernomportfolio/static/css/main.54fc7eab.css",
-    "main.js": "/xernomportfolio/static/js/main.718727af.js",
+    "main.css": "/xernomportfolio/static/css/main.1d59c7e4.css",
+    "main.js": "/xernomportfolio/static/js/main.ca383168.js",
     "static/js/453.7a6db9c7.chunk.js": "/xernomportfolio/static/js/453.7a6db9c7.chunk.js",
     "static/media/mobilejen2.png": "/xernomportfolio/static/media/mobilejen2.6281e03f3f04727f4e7a.png",
     "static/media/HomeContact.png": "/xernomportfolio/static/media/HomeContact.aa6b26a01549492a088d.png",
@@ -44,12 +44,12 @@
     "static/media/iconmonstr-github-1.svg": "/xernomportfolio/static/media/iconmonstr-github-1.04be58c17b3d5e9744424d414240dd85.svg",
     "index.html": "/xernomportfolio/index.html",
     "static/media/tailwind-svgrepo-com.svg": "/xernomportfolio/static/media/tailwind-svgrepo-com.973c73e85d4daa24b257ba20298716c4.svg",
-    "main.54fc7eab.css.map": "/xernomportfolio/static/css/main.54fc7eab.css.map",
-    "main.718727af.js.map": "/xernomportfolio/static/js/main.718727af.js.map",
+    "main.1d59c7e4.css.map": "/xernomportfolio/static/css/main.1d59c7e4.css.map",
+    "main.ca383168.js.map": "/xernomportfolio/static/js/main.ca383168.js.map",
     "453.7a6db9c7.chunk.js.map": "/xernomportfolio/static/js/453.7a6db9c7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.54fc7eab.css",
-    "static/js/main.718727af.js"
+    "static/css/main.1d59c7e4.css",
+    "static/js/main.ca383168.js"
   ]
 }
