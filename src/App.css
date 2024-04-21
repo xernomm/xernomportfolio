@@ -58,11 +58,24 @@ li .sitemap
   list-style: none !important;
 }
 
+.backdrop 
+{
+  background-color: rgba(0, 0, 0, 0.104) !important;
+  backdrop-filter: blur(5px) !important;
+}
+
 @media (max-width: 767px) {
     .smNone
   {
     display: none;
   }
-  
+  .searchForm
+    {
+      width: 175% !important;
+    }
+  .searchBtn
+  {
+    transform: translateX(200%);
+  }
 }
 

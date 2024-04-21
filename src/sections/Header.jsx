@@ -59,12 +59,12 @@ export const Header = () => {
                             </Nav>
                         </Navbar.Collapse>
                         <Navbar.Collapse className="justify-content-end">
-                                                        <Form onSubmit={handleSearch}>
-                                <div className="d-flex justify-content-center align-items-center searchForm">
+                            <Form onSubmit={handleSearch}>
+                                <div className="d-flex align-items-center ">
                                     <FloatingLabel controlId="floatingInput" label="Search.." className="text-muted ">
-                                        <Form.Control ref={inputRef} type="text" placeholder="Search" style={{ width: "135%", position: "relative", zIndex: "2" }} />
+                                        <Form.Control className='searchForm' ref={inputRef} type="text" placeholder="Search" style={{ width: "135%", position: "relative", zIndex: "2" }} />
                                     </FloatingLabel>
-                                    <Button type='submit' className='get-started-btn searchBtn' style={{ position: "relative", zIndex: "4" }}>
+                                    <Button type='submit' className=' searchBtn' style={{ position: "relative", zIndex: "4" }}>
                                         <I.Search className='lead'/>
                                     </Button>
                                 </div>

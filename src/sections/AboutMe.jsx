@@ -1,5 +1,5 @@
 import { Container, Row } from "react-bootstrap"
-import me from '../img/pp3.png'
+import me from '../img/pp.png'
 import me2 from '../img/pp1.png'
 import { useEffect, useState } from "react";
 import Lottie from "lottie-react";
@@ -32,15 +32,9 @@ export const AboutMe = () => {
                 <div className=" col-lg-12 d-lg-flex justify-content-center align-items-center">
                    <div>
                    <Row className="col-lg-12 d-lg-flex justify-content-center" >
-                        <div className="col-lg-4 col-sm-6 smNone pe-5">
-                        {/* <img
-                            src={hovered ? me2 : me}
-                            alt=""
-                            className={`col-lg-10 col-sm-12 aboutMeImg ${hovered ? 'hovered' : ''}`}
-                            onMouseEnter={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
-                        /> */}
-                        <Lottie animationData={profile} />
+                        <div className="col-lg-4 col-sm-6 px-4">
+                        <img src={me} alt="" className="col-12 imgBorder" />
+
                         </div>
                         <div className="col-lg-8 col-sm-12">
                         <h1 className="primary fw-bold display-3 my-4">
@@ -72,7 +66,7 @@ export const AboutMe = () => {
                                 </p>
                             </div>
                             <div className="col-lg-5 col-sm-12">
-                                <Lottie animationData={computer} />
+                               <Lottie animationData={computer} />
                             </div>
                         </div>
                     </Row>

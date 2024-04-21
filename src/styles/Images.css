@@ -16,11 +16,16 @@
     border-radius: 50px ;
 }
 
-.aboutMeImg
+.imgBorder
 {
-    border-radius: 10px 100px / 120px; 
-    transition: all ease 0.9s;
+    transition: border-radius 0.5s;
+    border-radius: 50% ;
+}
 
+.imgBorder:hover
+{
+    transition: border-radius 0.5s;
+    border-radius: 15px ;
 }
 
 @media (max-width: 767px) {

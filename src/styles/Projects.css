@@ -37,27 +37,50 @@
 
 
   .projectSets {
-    padding: 5%;
-    height: 800px;
-    overflow-x: auto;
-  }
-  
-  .project {
-    height: 100%;
-    width: 400px !important;
-    margin-right: 5%;
-    margin-left: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-  .projectInDev
+  .project{
+      width: calc(50% - 10px); 
+      margin-bottom: 25%;
+      text-align: center;
+    }
+  
+  .projectBox {
+    border: 1px solid rgba(255, 255, 255, 0.443);
+    padding: 4%;
+    border-radius: 9px;
+    margin-bottom: 15% !important;
+    transition: all ease 0.5s;
+    height: 100%;
+    color: white !important;
+  }
+
+  .projectBox:hover
   {
-    width: 400px !important;
-    margin-right: 5%;
-    margin-left: 5%;
+    background-color: #ffffff;
+    transition: all ease 0.5s;
+    color: black !important;
+    scale: 105%;
+  }
+
+  .projectBody
+  {
+    margin-top: 5%;
+    height: 36%;
+  }
+  .projectImgBox
+  {
+    height: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .projectImage {
-    width: 100%; 
+    width: 85%; 
     border-radius: 10px;
   }
   
@@ -65,14 +88,7 @@
     margin-top: 10px;
   }
 
-  .projectBody {
-    height: 150px;
-    overflow-y: auto;
-    padding-right: 5%;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-  }
+
   
   .projectFooter
   {

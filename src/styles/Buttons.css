@@ -36,6 +36,9 @@
   {
     height: 100% !important;
     border: none !important;
+    color: #ffc451 !important;
+    background-color: #1b232800 !important;
+    margin-left: 5%;
   }
 
   .outline-white

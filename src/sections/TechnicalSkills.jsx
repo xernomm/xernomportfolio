@@ -1,4 +1,4 @@
-import { Col, Container, ProgressBar, Row } from "react-bootstrap"
+import { Button, Col, Container, FloatingLabel, Form, ProgressBar, Row } from "react-bootstrap"
 
 import reactLogo from '../img/reactlogo.png';
 import nodeLogo from '../img/nodejslogo.svg';
@@ -24,8 +24,12 @@ import canvaLogo from '../img/canva.svg';
 import nextjs from '../img/nextjs-icon-svgrepo-com.svg'
 import tailwind from '../img/tailwind-svgrepo-com.svg'
 import php from '../img/php-logo-svgrepo-com.svg'
+import * as I from "react-bootstrap-icons"
+import { useState } from "react";
 
 export const TechnicalSkills = () => {
+    const [filterValue, setFilterValue] = useState('');
+    
 
     const skillSets = [
         { image: reactLogo, name: 'ReactJs', rate:85 },
@@ -54,20 +58,46 @@ export const TechnicalSkills = () => {
         { image: canvaLogo, name: 'Canva', rate:85 },
       ];
 
+      const filteredSkillSets = skillSets.filter(skill => {
+        return (
+            skill.name.toLowerCase().includes(filterValue.toLowerCase()) ||
+            skill.rate.toString().includes(filterValue)
+        );
+        });
+
+      const handleFilterChange = (e) => {
+            setFilterValue(e.target.value);
+        };
+
     return (
         <>
         <Container>
             <Row>
                 <div>
-                    <h1 className="display-3 primary fw-bold ">
-                        Skillsets
-                    </h1>
+                    <div className="d-lg-flex justify-content-center align-items-center">
+                        <h1 className="col-lg-8 col-sm-12 display-3 primary fw-bold ">
+                            Skillsets
+                        </h1>
+                        <div className="col-lg-4 col-sm-12">
+                            <Form onKeyUp={handleFilterChange} className="col-12">
+                                <div className="d-flex justify-content-lg-end align-items-center">
+                                    <FloatingLabel controlId="floatingInput" label="Filter.." className="text-muted ">
+                                        <Form.Control  type="text" placeholder="Filter" style={{ width: "132%", position: "relative", zIndex: "2" }} className="searchForm"/>
+                                    </FloatingLabel>
+                                    <Button type='submit' className=' searchBtn' style={{ position: "relative", zIndex: "4" }}>
+                                        <I.Search className='lead'/>
+                                    </Button>
+                                </div>
+                            </Form>
+                        </div>
+                    </div>
+
                     <hr />
-                    <div className="d-lg-flex col-lg-12 justify-content-center mt-5">
+                    <div className="d-lg-flex col-lg-12  mt-5">
                     <div className="skillsets">
                         <div className="px-2">
-                            <Row xs={1} lg={3} className="g-3"> {/* Use Row component to manage layout */}
-                            {skillSets.map((skill, index) => (
+                            <Row xs={1} md={2} lg={3} className="g-lg-3"> 
+                            {filteredSkillSets.map((skill, index) => (
                                 <Col key={index}>
                                 <div className="skillBox mb-3">
                                     <div className="d-flex align-items-center justify-content-center">

@@ -9,10 +9,11 @@
     border: 1px solid rgba(255, 255, 255, 0.443);
     padding: 4%;
     border-radius: 9px;
-    margin: 3%;
+    /* margin: 3%; */
     transition: all ease 0.5s;
     height: 80%;
     color: white !important;
+    width: 400px !important;
   }
 
   .skillBox:hover
@@ -24,11 +25,7 @@
   }
 
 
-  .skill {
-    width: calc(50% - 10px); 
-    margin-bottom: 25%;
-    text-align: center;
-  }
+
   
   .skillImage {
     width:95%; 
@@ -58,10 +55,17 @@
     transition: all ease 0.5s;
   }
   @media (max-width: 767px) {
-    .skill {
-      width: calc(50% - 20px);
-      margin-bottom: 25%;
-    /* 50% width for 2 boxes in a row with 10px gap */
+    .skillBox
+    {
+      border: 1px solid rgba(255, 255, 255, 0.443);
+      padding: 4%;
+      border-radius: 9px;
+      /* margin: 3%; */
+      transition: all ease 0.5s;
+      height: 80%;
+      color: white !important;
+      width: 100% !important;
     }
+    
   }
   
