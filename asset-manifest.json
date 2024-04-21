@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/xernomportfolio/static/css/main.b6908ffc.css",
+    "main.css": "/xernomportfolio/static/css/main.65c6d904.css",
     "main.js": "/xernomportfolio/static/js/main.f1612d8a.js",
     "static/js/453.7a6db9c7.chunk.js": "/xernomportfolio/static/js/453.7a6db9c7.chunk.js",
     "static/media/mobilejen2.png": "/xernomportfolio/static/media/mobilejen2.6281e03f3f04727f4e7a.png",
@@ -44,12 +44,12 @@
     "static/media/iconmonstr-github-1.svg": "/xernomportfolio/static/media/iconmonstr-github-1.04be58c17b3d5e9744424d414240dd85.svg",
     "index.html": "/xernomportfolio/index.html",
     "static/media/tailwind-svgrepo-com.svg": "/xernomportfolio/static/media/tailwind-svgrepo-com.973c73e85d4daa24b257ba20298716c4.svg",
-    "main.b6908ffc.css.map": "/xernomportfolio/static/css/main.b6908ffc.css.map",
+    "main.65c6d904.css.map": "/xernomportfolio/static/css/main.65c6d904.css.map",
     "main.f1612d8a.js.map": "/xernomportfolio/static/js/main.f1612d8a.js.map",
     "453.7a6db9c7.chunk.js.map": "/xernomportfolio/static/js/453.7a6db9c7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b6908ffc.css",
+    "static/css/main.65c6d904.css",
     "static/js/main.f1612d8a.js"
   ]
 }
