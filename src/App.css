@@ -71,11 +71,7 @@ li .sitemap
   }
   .searchForm
     {
-      width: 175% !important;
+      width: 134% !important;
     }
-  .searchBtn
-  {
-    transform: translateX(200%);
-  }
 }
 
