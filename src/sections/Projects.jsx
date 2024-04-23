@@ -122,7 +122,7 @@ export const Projects = () => {
                                                         {project.title}
                                                     </h1>
                                                     <hr />
-                                                    <p className="lead">Developed with: <span className="fw-bold">{project.tools}</span> </p>
+                                                    <p className="">Developed with: <span className="fw-bold">{project.tools}</span> </p>
                                                 </div>
                                                 <div className="px-3">
                                                     {project.status === "Finished" && (

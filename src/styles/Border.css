@@ -3,9 +3,21 @@
     height: 3px !important;
     color: #ffc451 !important;
     background-color: #ffffff00 !important;
+    width: 244.55px !important;
 }
 
 .progress-bar {
     background-color: #ffc451 !important;
 }
-  
+
+
+@media (min-width: 992px)
+{
+    .progressBar
+    {
+        height: 3px !important;
+        color: #ffc451 !important;
+        background-color: #ffffff00 !important;
+        width: 230px !important;
+    }
+}
