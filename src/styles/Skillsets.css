@@ -13,7 +13,7 @@
     height: 80%;
     color: white !important;
     width: 100% !important;
-    padding: 5% !important;
+    padding: 3% !important;
 
   }
 
@@ -22,7 +22,7 @@
     background-color: #ffffff;
     transition: all ease 0.5s;
     color: black !important;
-    scale: 110%;
+    scale: 105%;
   }
 
 
@@ -48,6 +48,9 @@
       color: white !important;
       width: 100% !important;
     }
-    
+    .filterForm
+    {
+     width: 100%;
+    }
   }
   

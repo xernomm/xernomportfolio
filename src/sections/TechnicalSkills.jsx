@@ -78,19 +78,19 @@ export const TechnicalSkills = () => {
                         <h1 className="col-lg-6 col-sm-12 display-3 primary fw-bold ">
                             Skillsets
                         </h1>
+                    <hr />
+                    <br />
                         <div className="col-lg-6 col-sm-12">
                             <Form onKeyUp={handleFilterChange} className="col-12">
                                 <div className="d-flex justify-content-lg-end align-items-center">
                                     <FloatingLabel controlId="floatingInput" label="Filter.." className="text-muted ">
-                                        <Form.Control  type="text" placeholder="Filter.." style={{ width: "100%", position: "relative", zIndex: "2" }} className="col-12 searchForm"/>
+                                        <Form.Control  type="text" placeholder="Filter.." className="col-12 filterForm"/>
                                     </FloatingLabel>
-    
                                 </div>
                             </Form>
                         </div>
                     </div>
 
-                    <hr />
                     <div className="d-lg-flex  col-lg-12  mt-5 ">
                     <div className="skillsets">
                         <div className="px-2">
