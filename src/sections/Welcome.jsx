@@ -91,7 +91,7 @@ export const Welcome = ({ scrollToAboutMe }) => {
                     <div className="col-lg-5 col-sm-12 ">
 
                       <div className="changeTextBox">
-                        <h1 className="smTextCenter primary display-3 fw-bold glowing-text">
+                        <h1 className="smTextCenter primary display-3 fw-bold">
                           {text} <span className='text-white blink'>|</span>
                           </h1>
                           <hr />
