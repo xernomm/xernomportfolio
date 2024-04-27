@@ -74,22 +74,22 @@ export const TechnicalSkills = () => {
         <Container>
             <Row>
                 <div>
-                    <div className="d-lg-flex justify-content-center align-items-center">
+                    <div className="d-lg-flex justify-content-center align-items-center col-12">
                         <h1 className="col-lg-6 col-sm-12 display-3 primary fw-bold ">
                             Skillsets
                         </h1>
-                    <hr />
                     <br />
                         <div className="col-lg-6 col-sm-12">
                             <Form onKeyUp={handleFilterChange} className="col-12">
-                                <div className="d-flex justify-content-lg-end align-items-center">
-                                    <FloatingLabel controlId="floatingInput" label="Filter.." className="text-muted ">
+                                <div className="d-flex justify-content-lg-end align-items-center col-12">
+                                    <FloatingLabel controlId="floatingInput" label="Filter.." className="text-muted col-sm-12 col-lg-8">
                                         <Form.Control  type="text" placeholder="Filter.." className="col-12 filterForm"/>
                                     </FloatingLabel>
                                 </div>
                             </Form>
                         </div>
                     </div>
+                    <hr />
 
                     <div className="d-lg-flex  col-lg-12  mt-5 ">
                     <div className="skillsets">
