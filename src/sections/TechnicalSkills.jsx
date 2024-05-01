@@ -82,7 +82,7 @@ export const TechnicalSkills = () => {
                         <div className="col-lg-6 col-sm-12">
                             <Form onKeyUp={handleFilterChange} className="col-12">
                                 <div className="d-flex justify-content-lg-end align-items-center col-12">
-                                    <FloatingLabel controlId="floatingInput" label="Filter.." className="text-muted col-sm-12 col-lg-8">
+                                    <FloatingLabel controlId="floatingInput" label="Filter.." className="text-muted col-12 col-lg-8">
                                         <Form.Control  type="text" placeholder="Filter.." className="col-12 filterForm"/>
                                     </FloatingLabel>
                                 </div>
