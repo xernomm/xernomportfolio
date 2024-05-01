@@ -117,6 +117,10 @@
       overflow-y: auto;
     }
     
+    .projectBody
+    {
+      height: 40% !important;
+    }
    
     .project, .projectInDev {
       height: 75%;
