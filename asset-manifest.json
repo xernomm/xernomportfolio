@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/xernomportfolio/static/css/main.913e64e1.css",
-    "main.js": "/xernomportfolio/static/js/main.5482f41f.js",
+    "main.js": "/xernomportfolio/static/js/main.d3d1e5ed.js",
     "static/js/453.7a6db9c7.chunk.js": "/xernomportfolio/static/js/453.7a6db9c7.chunk.js",
     "static/media/mobilejen2.png": "/xernomportfolio/static/media/mobilejen2.6281e03f3f04727f4e7a.png",
     "static/media/pp.png": "/xernomportfolio/static/media/pp.30cd7f678371e1e2c127.png",
@@ -26,9 +26,13 @@
     "static/media/php-logo-svgrepo-com.svg": "/xernomportfolio/static/media/php-logo-svgrepo-com.7cdf397b73f2f77a9a970c0e88015f3f.svg",
     "static/media/js.png": "/xernomportfolio/static/media/js.772d1f45402ad8109753.png",
     "static/media/css.svg": "/xernomportfolio/static/media/css.3e9e79cfa343d48b4fd86db239cdf9b9.svg",
+    "static/media/Tagui.png": "/xernomportfolio/static/media/Tagui.9b1a72a4c01bb8eba22c.png",
     "static/media/xernomm.png": "/xernomportfolio/static/media/xernomm.164b6a1562fbc4d916c7.png",
+    "static/media/Ollama Language Model.svg": "/xernomportfolio/static/media/Ollama Language Model.487dddcf6702c89ebfca1613d34f9e9d.svg",
+    "static/media/langchain-seeklogo.svg": "/xernomportfolio/static/media/langchain-seeklogo.20a0997a9e2552f093b68e807804681b.svg",
     "static/media/dbt-seeklogo.svg": "/xernomportfolio/static/media/dbt-seeklogo.152a809cf951f64e3a3cb0547f72ac0f.svg",
     "static/media/nodejslogo.svg": "/xernomportfolio/static/media/nodejslogo.dd47e26ed1d7dddf018e5cbffc40f76d.svg",
+    "static/media/mongodb_original_logo_icon_146424.svg": "/xernomportfolio/static/media/mongodb_original_logo_icon_146424.416baad2a16190de2ad81ad547b71fd8.svg",
     "static/media/appsheet-vector-logo-2022.svg": "/xernomportfolio/static/media/appsheet-vector-logo-2022.b680fd7249c147b7ce53e907d03e71a6.svg",
     "static/media/springlogo.svg": "/xernomportfolio/static/media/springlogo.1333af3a91a8ead572245a0bf14558fc.svg",
     "static/media/nextjs-icon-svgrepo-com.svg": "/xernomportfolio/static/media/nextjs-icon-svgrepo-com.e3c042b9d9d809ebb67e9bc6e1e5f70d.svg",
@@ -41,15 +45,17 @@
     "static/media/canva.svg": "/xernomportfolio/static/media/canva.cd1a69fd0110c72a5053591102c1c731.svg",
     "static/media/liferay.svg": "/xernomportfolio/static/media/liferay.2edf1a7aaa6bef0ff72cdf266e3cec98.svg",
     "static/media/bootstrap-logo.svg": "/xernomportfolio/static/media/bootstrap-logo.11b86bc0885dba6f52ff38ed174b0d91.svg",
+    "static/media/sqlite_logo_icon_169724.svg": "/xernomportfolio/static/media/sqlite_logo_icon_169724.237e776b1921b0cd3041b9237fe9b63a.svg",
     "static/media/iconmonstr-github-1.svg": "/xernomportfolio/static/media/iconmonstr-github-1.04be58c17b3d5e9744424d414240dd85.svg",
     "index.html": "/xernomportfolio/index.html",
+    "static/media/couchbase_logo_icon_170319.svg": "/xernomportfolio/static/media/couchbase_logo_icon_170319.4fcf77cc2dc3857a078f926a3747d052.svg",
     "static/media/tailwind-svgrepo-com.svg": "/xernomportfolio/static/media/tailwind-svgrepo-com.973c73e85d4daa24b257ba20298716c4.svg",
     "main.913e64e1.css.map": "/xernomportfolio/static/css/main.913e64e1.css.map",
-    "main.5482f41f.js.map": "/xernomportfolio/static/js/main.5482f41f.js.map",
+    "main.d3d1e5ed.js.map": "/xernomportfolio/static/js/main.d3d1e5ed.js.map",
     "453.7a6db9c7.chunk.js.map": "/xernomportfolio/static/js/453.7a6db9c7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.913e64e1.css",
-    "static/js/main.5482f41f.js"
+    "static/js/main.d3d1e5ed.js"
   ]
 }
