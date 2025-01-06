@@ -19,7 +19,8 @@
     "react-scripts": "5.0.1",
     "sass": "^1.72.0",
     "sweetalert2": "^11.10.6",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "xernomportfolio": "file:"
   },
   "homepage": "https://xernomm.github.io/xernomportfolio/",
   "scripts": {

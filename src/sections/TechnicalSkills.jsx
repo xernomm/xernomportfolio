@@ -24,7 +24,12 @@ import canvaLogo from '../img/canva.svg';
 import nextjs from '../img/nextjs-icon-svgrepo-com.svg'
 import tailwind from '../img/tailwind-svgrepo-com.svg'
 import php from '../img/php-logo-svgrepo-com.svg'
-import * as I from "react-bootstrap-icons"
+import ollama from '../img/Ollama Language Model.svg'
+import langchain from '../img/langchain-seeklogo.svg'
+import tagui from '../img/Tagui.png'
+import sqlite from '../img/sqlite_logo_icon_169724.svg'
+import mongo from '../img/mongodb_original_logo_icon_146424.svg'
+import couchbase from '../img/couchbase_logo_icon_170319.svg'   
 import { useState } from "react";
 
 export const TechnicalSkills = () => {
@@ -37,6 +42,13 @@ export const TechnicalSkills = () => {
         { image: nextjs, name: 'NextJs' , rate:75},
         { image: springBootLogo, name: 'Spring Boot', rate:85 },
         { image: javaLogo, name: 'Java', rate:80 },
+        { image: springBootLogo, name: 'Spring Boot', rate:85 },
+        { image: ollama, name: 'Ollama LLM', rate:75 },
+        { image: langchain, name: 'Langchain', rate:75 },
+        { image: tagui, name: 'TagUI', rate:75 },
+        { image: sqlite, name: 'SQLite', rate:75 },
+        { image: mongo, name: 'MongoDB', rate:75 },
+        { image: couchbase, name: 'Couchbase', rate:75 },
         { image: php, name: 'PHP', rate:75 },
         { image: sqlLogo, name: 'SQL', rate:75 },
         { image: githubLogo, name: 'GitHub', rate:80 },
@@ -50,12 +62,7 @@ export const TechnicalSkills = () => {
         { image: appsheetLogo, name: 'AppSheet' , rate:75},
         { image: powerbiLogo, name: 'Power BI', rate:80 },
         { image: liferayLogo, name: 'Liferay', rate:75 },
-        { image: photoshopLogo, name: 'Photoshop', rate:95 },
-        { image: adobeMixLogo, name: 'Photoshop Mix', rate:95 },
-        { image: kinemasterLogo, name: 'Kinemaster', rate:95 },
-        { image: capcutLogo, name: 'CapCut' , rate:95},
         { image: axureLogo, name: 'Axure', rate:85 },
-        { image: canvaLogo, name: 'Canva', rate:85 },
       ];
 
       const filteredSkillSets = skillSets.filter(skill => {
