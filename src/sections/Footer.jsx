@@ -27,9 +27,7 @@ export const Footer = () => {
                                 <li>
                                     <a href="#home" className=" text-white sitemap">Home</a>
                                 </li>
-                                <li>
-                                    <a href="#intro" className=" text-white sitemap">Introduction</a>
-                                </li>
+
                                 <li>
                                     <a href="#about" className=" text-white sitemap">About</a>
                                 </li>
@@ -49,9 +47,6 @@ export const Footer = () => {
                                 </li>
                                 <li>
                                     <a href="#projects" className=" text-white sitemap">Projects</a>
-                                </li>
-                                <li>
-                                    <a href="#extras" className=" text-white sitemap">Extras</a>
                                 </li>
                                 <li>
                                     <a href="#connect" className=" text-white sitemap">Connect Me</a>

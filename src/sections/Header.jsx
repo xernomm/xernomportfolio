@@ -49,12 +49,10 @@ export const Header = () => {
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto">
                                 <Nav.Link onClick={() => scrollToSection('home')}>Home</Nav.Link>
-                                <Nav.Link onClick={() => scrollToSection('intro')}>Introduction</Nav.Link>
                                 <Nav.Link onClick={() => scrollToSection('about')}>About</Nav.Link>
                                 <Nav.Link onClick={() => scrollToSection('skills')}>Skills</Nav.Link>
                                 <Nav.Link onClick={() => scrollToSection('experiences')}>Experiences</Nav.Link>
                                 <Nav.Link onClick={() => scrollToSection('projects')}>Projects</Nav.Link>
-                                <Nav.Link onClick={() => scrollToSection('extras')}>Extras</Nav.Link>
                                 <Nav.Link onClick={() => scrollToSection('connect')}>Connect Me</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>

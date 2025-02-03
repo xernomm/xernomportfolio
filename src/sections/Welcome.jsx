@@ -15,7 +15,7 @@ export const Welcome = ({ scrollToAboutMe }) => {
     const words = "Hello! I am Rafael Richie.";
 
     const [textIndex, setTextIndex] = useState(0);
-    const texts = ['Fullstack Web Developer', 'Front-End Engineer', 'Back-End Developer', 'UI/UX Designer', 'Data scientist', 'Content Creator', 'Software Tester'];
+    const texts = ['Fullstack Web Developer', 'Front-End Engineer', 'Back-End Developer', 'UI/UX Designer', 'Data scientist', 'AI Developer', 'Software Tester'];
  
     useEffect(() => {
         const interval = setInterval(() => {
@@ -51,29 +51,19 @@ export const Welcome = ({ scrollToAboutMe }) => {
         }
     };
 
-    const handleEmailClick = () => {
-        const email = 'rafaelrichie03@gmail.com';
-        const subject = 'Hello Rafael!'; // You can set a default subject
-        const body = 'Hi Rafael,\n We are interested in hiring you!\n'; // You can set a default body
-    
-        // Construct the mailto URL
-        const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-        // Open the default email client
-        window.open(mailtoUrl);
-      };
+
 
 
     const handleDownloadClick = () => {
         // Assuming your file path is relative to the public directory
-        const filePath = process.env.PUBLIC_URL + '/downloads/RafaelRichie-CV.pdf';
+        const filePath = process.env.PUBLIC_URL + '/downloads/RafaelRichieCurriculumVitae.pdf';
         
         // Create an anchor element
         const anchor = document.createElement('a');
         anchor.href = filePath;
         
         // Set the 'download' attribute to initiate download
-        anchor.download = 'RafaelRichie-CV.pdf';
+        anchor.download = 'RafaelRichieCurriculumVitae.pdf';
         
         // Programmatically click the anchor element
         anchor.click();
@@ -84,25 +74,31 @@ export const Welcome = ({ scrollToAboutMe }) => {
         <Container>
             <Row>
                 <div className="col-lg-12 d-lg-flex  align-items-center justify-content-center">
-                    <div className="col-lg-7 col-sm-12 d-flex justify-content-center align-items-center">
+                    <div className="col-lg-6 col-sm-12 d-flex justify-content-center align-items-center">
                         {/* <img src={me} alt="" className="contactMeImg col-12" onClick={handleEmailClick} style={{ cursor: 'pointer' }}/> */}
                         <Lottie animationData={developer} />
                     </div>
-                    <div className="col-lg-5 col-sm-12 ">
+                    <div className="col-lg-5 col-sm-12 my-auto">
 
                       <div className="changeTextBox">
-                        <h1 className="smTextCenter primary display-3 fw-bold">
+                        <div className='helloContainer'>
+
+                        <h1 className="smTextCenter primary display-5 fw-bold">
                           {text} <span className='text-white blink'>|</span>
                           </h1>
+                        </div>
                           <hr />
-                          <p className="primary lead display-6 smTextCenter">
+                          <p className="primary lead smTextCenter">
                             
 
-                              <span className='text-white display-6 '>And I'm a </span>{texts[textIndex]}
+                              <span className='text-white lead '>And I'm a </span>
+                              <span className="fw-bold">
+                               {texts[textIndex]}
+                              </span>
                         </p>
                       </div>
                         
-                        <div className="mt-5">
+                        <div className="mt-1">
                             <div className="d-lg-flex align-items center">
                                 <div className="d-flex justify-content-center col-lg-12 col-sm-12">
                                     <Button className="get-started-btn col-12" onClick={handleDownloadClick}>

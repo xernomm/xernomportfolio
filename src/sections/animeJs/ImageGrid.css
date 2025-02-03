@@ -1,0 +1,38 @@
+body {
+    background-color: #1a1919;
+    text-align: center;
+  }
+  
+  .placeholder {
+    display: inline-block;
+    position: relative;
+    width: 450px;
+    height: 450px;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius:  50% 20% / 10% 40%;
+  }
+
+  @media (max-width: 767px) {
+    .placeholder {
+        width: 100%; /* Adjusted for mobile */
+        height: 300px; /* Adjusted proportionally */
+    }
+}
+
+  .gridContainer {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .gridTile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-origin: center;
+  }
+  

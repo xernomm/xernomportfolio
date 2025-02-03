@@ -1,10 +1,10 @@
 import { Container, Row } from "react-bootstrap"
-import me from '../img/pp.png'
 import me2 from '../img/pp1.png'
 import { useEffect, useState } from "react";
 import Lottie from "lottie-react";
 import profile from '../lottie/profile.json'
 import computer from '../lottie/computer.json'
+import ImageGrid from "./animeJs/meImg";
 export const AboutMe = () => {
 
     const [hovered, setHovered] = useState(false);
@@ -31,12 +31,12 @@ export const AboutMe = () => {
 
                 <div className=" col-lg-12 d-lg-flex justify-content-center align-items-center">
                    <div>
-                   <Row className="col-lg-12 d-lg-flex justify-content-center" >
-                        <div className="col-lg-4 col-sm-6 px-4">
-                        <img src={me} alt="" className="col-12 imgBorder" />
+                   <Row className="col-lg-12 d-lg-flex justify-content-center align-items-center" >
+                        <div className="col-lg-5 col-sm-6">
+                        <ImageGrid />
 
                         </div>
-                        <div className="col-lg-8 col-sm-12">
+                        <div className="col-lg-6 col-sm-12">
                         <h1 className="primary fw-bold display-3 my-4">
                             About Me
                         </h1>

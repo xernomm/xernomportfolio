@@ -36,9 +36,7 @@ function App() {
           <Row id='home'>
             <Welcome scrollToAboutMe={scrollToAboutMe}/>
           </Row>
-          <Row className='newRow' id="intro">
-            <IntroVid ref={aboutMeRef} />
-          </Row>
+
           <Row className='newRow' id="about">
             <AboutMe />
           </Row>
@@ -50,9 +48,6 @@ function App() {
           </Row>
           <Row className='newRow' id="projects">
             <Projects />
-          </Row>
-          <Row className='newRow' id="extras">
-            <Extras />
           </Row>
           <Row className='newRow' id='connect'>
             <ContactUs />
