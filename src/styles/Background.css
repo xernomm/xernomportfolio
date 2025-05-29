@@ -27,7 +27,7 @@
 
 .changeTextBox
 {
-    height: 100% !important;
+    height: 300px !important;
 }
 
 @media (max-width: 767px)
@@ -45,5 +45,5 @@
 
 .helloContainer
 {
-    height: 30%
+    height: 40%
 }
