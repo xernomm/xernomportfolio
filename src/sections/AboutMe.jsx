@@ -1,82 +1,86 @@
-import { Container, Row } from "react-bootstrap"
-import me2 from '../img/pp1.png'
-import { useEffect, useState } from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { Container, Row, Col, FloatingLabel, Form, Button } from "react-bootstrap";
 import Lottie from "lottie-react";
-import profile from '../lottie/profile.json'
-import computer from '../lottie/computer.json'
-import ImageGrid from "./animeJs/meImg";
+import avatar from "../lottie/avatar.json"; // pastikan path benar
+
 export const AboutMe = () => {
+  const [query, setQuery] = useState("");
+  const [answer, setAnswer] = useState("");
+  const API_KEY = "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";
 
-    const [hovered, setHovered] = useState(false);
-    const [prevHovered, setPrevHovered] = useState(false);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!query) return;
 
-    const handleMouseEnter = () => {
-        if (!prevHovered) {
-        setHovered(true);
-        setPrevHovered(true);
+    try {
+      const prompt = `You are Rafael Richie, a fullstack developer specialized in web applications, LLM chatbots, and RPA (robotic process automation). 
+You have professional experience using technologies like React, Node.js, Flask Python, Ollama, Streamlit, and LangChain, and have built both frontend and backend systems with secure integrations and modern UI frameworks like Bootstrap and TailwindCSS. 
+You should answer like a helpful, skilled engineer who is passionate about automation, AI, and user experience. Keep your answers practical and based on your professional experiences.\n\nUser: ${query}`;
+
+      const response = await axios.post(
+        "https://openrouter.ai/api/v1/chat/completions",
+        {
+          model: "google/gemma-3n-e4b-it:free",
+          messages: [
+            {
+              role: "user",
+              content: prompt,
+            },
+          ],
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${API_KEY}`,
+            "HTTP-Referer": "https://your-site-url.com",
+            "X-Title": "Rafael Richie Portfolio",
+            "Content-Type": "application/json",
+          },
         }
-        if (hovered){
-        setHovered(false)
-        }
-    };
+      );
 
-    const handleMouseLeave = () => {
-        setPrevHovered(false);
-    };
+      const result = response.data.choices?.[0]?.message?.content || "";
+      setAnswer(result);
+    } catch (error) {
+      console.error("Error fetching OpenRouter response:", error);
+      setAnswer("Error fetching data.");
+    }
+  };
 
-    return (
-        <>
-        <Container>
-            <Row>
+  return (
+    <Container className="pt-5">
+      <h1 className="display-4 fw-bold primary">Ask Me</h1>
+      <hr />
+      <Row className="align-items-start">
+        <Col md={4} className="text-center">
+          <Lottie animationData={avatar} loop autoplay style={{ maxWidth: 300 }} />
+        </Col>
+        <Col md={8}>
+          <Form onSubmit={handleSubmit}>
+            <FloatingLabel controlId="floatingPrompt" label="Ask something..." className="mb-3">
+              <Form.Control
+                type="text"
+                placeholder="What do you specialize in?"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+              />
+            </FloatingLabel>
+            <Button type="submit" variant="primary">Ask</Button>
 
-                <div className=" col-lg-12 d-lg-flex justify-content-center align-items-center">
-                   <div>
-                   <Row className="col-lg-12 d-lg-flex justify-content-center align-items-center" >
-                        <div className="col-lg-5 col-sm-6">
-                        <ImageGrid />
-
-                        </div>
-                        <div className="col-lg-6 col-sm-12">
-                        <h1 className="primary fw-bold display-3 my-4">
-                            About Me
-                        </h1>
-                        <hr />
-                        <p className="lead text-white">
-                            My name is <span className="fw-bold text-warning">Rafael Richie</span>, a passionate web designer and developer. 
-                        </p>
-                        
-                        <p className="lead text-white">
-                            I'm currently studying Software Engineering at <span className="fw-bold text-warning">Lithan Academy</span>, where I've gained bold programming skills in both front-end and back-end development. <br />
-                            In addition to my studies, I'm also an active independent learner, which has helped me develop my <span className="text-warning fw-bold">coding skills</span>.
-                        
-                        </p>
-                    
-                    </div>
-                    </Row>
-                    <Row >
-                        <div className="col-lg-12 d-lg-flex justify-content-center align-items-center">
-                            <div className="col-lg-7 col-sm-12">
-                                <p className="lead text-white">
-                                    I'm enthusiastic about creating user-friendly interfaces along with building <span className="text-warning fw-bold">complex systems</span> for better user experiences and website functionality. <br />
-                                    My experience includes learning <span className="text-warning fw-bold">Spring Boot</span> and <span class="text-warning fw-bold">ReactJs</span> for building websites, making me proficient in both front-end and back-end development. 
-                                </p>
-
-                                <p className="lead text-white">
-                                    I am really excited to connect with you for potential <span className="fw-bold text-warning">collaborations</span> or <span className="fw-bold text-warning">opportunities</span>. Whether it's web design, web development, or a combination of both, I'm well-equipped to deliver high-quality results.
-                                </p>
-                            </div>
-                            <div className="col-lg-5 col-sm-12">
-                               <Lottie animationData={computer} />
-                            </div>
-                        </div>
-                    </Row>
-                   </div>
-                    
-                    
-                   
-                </div>
-            </Row>
-        </Container>
-        </>
-    )
-}
+            {answer && (
+              <FloatingLabel controlId="floatingAnswer" label="AI Response" className="mt-4">
+                <Form.Control
+                  as="textarea"
+                  style={{ height: "150px" }}
+                  readOnly
+                  value={answer}
+                  placeholder="AI response will appear here..."
+                />
+              </FloatingLabel>
+            )}
+          </Form>
+        </Col>
+      </Row>
+    </Container>
+  );
+};

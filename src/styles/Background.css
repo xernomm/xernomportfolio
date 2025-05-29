@@ -1,12 +1,23 @@
 .newRow
 {
-    margin-top: 1% !important;
+    margin-top: 5% !important;
 }
 
 .overflowX
 {
     overflow-x: auto;
     overflow-y: hidden;
+}
+
+.overflowY
+{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.max50
+{
+    max-height: 50vh;
 }
 
 .footer
@@ -16,7 +27,7 @@
 
 .changeTextBox
 {
-    height: 300px !important;
+    height: 100% !important;
 }
 
 @media (max-width: 767px)
@@ -34,5 +45,5 @@
 
 .helloContainer
 {
-    height: 40%
+    height: 30%
 }

@@ -6,14 +6,16 @@
   
   .skillBox
   {
-    border: 1px solid rgba(255, 255, 255, 0.443);
-    border-radius: 9px;
     /* margin: 3%; */
     transition: all ease 0.5s;
-    height: 80%;
+    height: 120px !important;
     color: white !important;
-    width: 100% !important;
-    padding: 3% !important;
+    /* width: 100% !important; */
+    padding: 5% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0000006e;
 
   }
 
@@ -22,14 +24,62 @@
     background-color: #ffffff;
     transition: all ease 0.5s;
     color: black !important;
-    scale: 105%;
   }
 
+  .skillCategoryTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 
+.skillCategoryDesc {
+  color: #ccc;
+    white-space: normal;     /* biar teks bisa wrap */
+  overflow: visible;       /* pastikan tidak terpotong */
+  display: block; 
+}
+
+/* wadah kategori => 100% lebar, bisa digeser horizontal */
+.categoryContainer {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;   /* smooth scroll iOS */
+  scrollbar-width: none;               /* Firefox */
+}
+.categoryContainer::-webkit-scrollbar { display: none; }  /* Chrome/Safari */
+
+.categoryBox {
+  border: none;
+  color: #fff;
+  white-space: nowrap;      /* supaya teks 1 baris di mobile */
+  margin-bottom: 12px;
+  padding: 5%;
+}
+
+.categoryBox.active {
+  font-weight: 600;
+  /* transform: scale(1.05); */
+  border-bottom: 2px solid #ffc451;
+}
+
+.categoryBox:hover
+{
+  background-color: #ffffff50;
+  transition: all 0.6s ease;
+
+}
+
+
+/* responsif tambahan utk skillBox — agar rapi di mobile */
+@media (max-width: 767px) {
+  .skillBox {
+    padding: 4%;
+  }
+}
 
   
   .skillImage {
-    width: 100% !important; 
+    width: 60% !important; 
+    height: 60% !important;
   }
   
   .skillName {
@@ -52,5 +102,25 @@
     {
      width: 100% !important;
     }
+    .categoryBox {
+  border: none;
+  color: #fff;
+  white-space: nowrap;      /* supaya teks 1 baris di mobile */
+  margin-bottom: 18px;
+  padding: 3%;
+}
+
+.categoryBox.active {
+  font-weight: 600;
+  /* transform: scale(1.05); */
+  border-bottom: 2px solid #ffc451;
+}
+
+.categoryBox:hover
+{
+  background-color: #ffffff50;
+  transition: all 0.6s ease;
+
+}
   }
   

@@ -4,17 +4,17 @@
     margin-right: 20px;
 }
 
-.contactMeImg
-{
-    border-radius: 23% 36% ;
-    transition: border-radius 0.5s;
+.contactMeImg {
+    transition: all 0.5s ease;
+    border-radius: 50% 20% / 10% 40%;
 }
 
-.contactMeImg:hover
-{
-    transition: border-radius 0.5s;
-    border-radius: 50px ;
+.contactMeImg:hover {
+    transform: translateY(-4%);
+    /* Efek glow di tepi gambar */
+    filter: drop-shadow(0 0 15px #ffbb38) drop-shadow(0 0 30px #ffbb38);
 }
+
 
 .imgBorder
 {
@@ -29,11 +29,9 @@
 }
 
 @media (max-width: 767px) {
-    .aboutMeImg {
-        display: none;
-    }
+
     .contactMeImg {
-        display: none;
+        scale: 80%;
     }
     .introVid
     {

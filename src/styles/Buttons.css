@@ -15,6 +15,23 @@
     color: #343a40 !important;
   }
 
+   .get-started-btn-fill {
+    color: #343a40 !important;
+    border-radius: 4px !important;
+    padding: 7px 25px 8px 25px !important;
+    white-space: nowrap !important;
+    transition: 0.3s !important;
+    font-size: 15px !important;
+    display: inline-block !important;
+    background: #ffbb38 !important;
+    border: 2px solid #ffc451 !important;
+  }
+  
+  .get-started-btn-fill:hover {
+    background: #cf9a36 !important;
+    color: #343a40 !important;
+  }
+
   .secondary-btn {
     color: #aeacac !important;
     border-radius: 4px !important;

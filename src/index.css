@@ -15,3 +15,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Untuk Chrome, Edge, dan Safari */
+::-webkit-scrollbar {
+  width: 3px;           /* tipis vertikal */
+  height: 3px;          /* tipis horizontal */
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ffc451;
+  border-radius: 10px;
+  border: none;
+}
+
+/* Untuk Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ffc451 transparent;
+}
+
