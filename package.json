@@ -18,6 +18,7 @@
     "email-js": "^2.0.2",
     "gsap": "^3.12.5",
     "lottie-react": "^2.4.0",
+    "ollama": "^0.5.16",
     "primereact": "^10.9.5",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.1",
@@ -32,7 +33,7 @@
     "web-vitals": "^2.1.4",
     "xernomportfolio": "file:"
   },
-  "homepage": "https://xernomm.github.io/xernomportfolio/",
+  "homepage": ".",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
