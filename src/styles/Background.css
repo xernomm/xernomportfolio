@@ -27,7 +27,30 @@
 
 .changeTextBox
 {
-    height: 300px !important;
+    height: 160px !important;
+}
+
+.changeAboutBox
+{
+    height: 120px !important;
+    width: 30vw !important;
+    max-width: 30vw !important;
+    display: inline-block;
+}
+
+.askMeStart
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    width: 80vw;
+}
+
+.askMeStartText
+{
+    display: inline-block;
+    height: 100px;
 }
 
 @media (max-width: 767px)
@@ -40,10 +63,51 @@
     {
         height: 200px !important;
     }
+    .changeAboutBox
+    {
+        text-align: center;
+        height: 250px !important;
+        display: inline-block;
+        width: 80vw !important;
+        max-width: 80vw !important;
+
+    }
+    .askMeStart
+    {
+        display: inline-block;
+        text-align: center;
+        width: 80vw !important;
+    }
+    .askMeStartText
+    {
+        height: 100px;
+    }
 }
 
+.chatbotfield {
+    height: 65vh;
+    max-height: 65vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    color: white;
+    position: relative;
+    flex-grow: 1;
+}
 
 .helloContainer
 {
     height: 40%
+}
+
+.chatBubble {
+    background-color: #ffc451;
+    color: black;
+    padding: 12px;
+    border-radius: 10px 10px 0 10px;
+    display: inline-block;
+    max-width: 80%;
+    word-break: break-word;
+    white-space: pre-wrap;
 }

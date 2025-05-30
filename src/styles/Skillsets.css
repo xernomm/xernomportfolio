@@ -15,13 +15,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #0000006e;
+    background-color: #00000000;
 
   }
 
   .skillBox:hover
   {
-    background-color: #ffffff;
+    background-color: #ffffffe5;
     transition: all ease 0.5s;
     color: black !important;
   }
@@ -78,8 +78,8 @@
 
   
   .skillImage {
-    width: 60% !important; 
-    height: 60% !important;
+    width: 50% !important; 
+    height: 50% !important;
   }
   
   .skillName {
@@ -90,7 +90,6 @@
   @media (max-width: 767px) {
     .skillBox
     {
-      border: 1px solid rgba(255, 255, 255, 0.443);
       padding: 3%;
       border-radius: 9px;
       transition: all ease 0.5s;

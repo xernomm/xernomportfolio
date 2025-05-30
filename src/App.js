@@ -8,13 +8,11 @@ import './styles/Background.css'
 import { Header } from './sections/Header';
 import { Container, Row } from 'react-bootstrap';
 import { Welcome } from './sections/Welcome';
-import { IntroVid } from './sections/IntroVid';
 import { useRef } from 'react';
 import { AboutMe } from './sections/AboutMe';
 import { TechnicalSkills } from './sections/TechnicalSkills';
 import { Experiences } from './sections/Experiences';
 import { Projects } from './sections/Projects';
-import { Extras } from './sections/Extras';
 import { Footer } from './sections/Footer';
 import { ContactUs } from './sections/ContactMe';
 

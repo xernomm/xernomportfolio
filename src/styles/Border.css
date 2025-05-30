@@ -10,6 +10,9 @@
     background-color: #ffc451 !important;
 }
 
+.p-inputwrapper-focus{
+border: 1px solid #ffc451 !important;
+}
 
 @media (min-width: 992px)
 {

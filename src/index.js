@@ -11,7 +11,8 @@ import './styles/Projects.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import 'primereact/resources/themes/md-light-deeppurple/theme.css'; 
+import 'primereact/resources/primereact.min.css';  
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

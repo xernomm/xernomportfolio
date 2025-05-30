@@ -84,4 +84,18 @@
     border: 1px solid #dbdbdb !important;
   }
 
+  #mulaiTanyaBtn
+  {
+    margin-top: 5%;
+    width: 30vw;
+  }
   
+  
+  @media (max-width: 767px)
+{
+  #mulaiTanyaBtn
+  {
+    width: 60vw;
+  }
+  
+}

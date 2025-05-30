@@ -1,19 +1,11 @@
 import React, { useState } from "react";
 import { Container, Row, Modal, Button } from "react-bootstrap";
-import Box from '@mui/material/Box';
-
-import Lottie from "lottie-react";
-import Carousel from "react-bootstrap/Carousel";
-import experience from '../lottie/experience.json';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import CardActionArea from '@mui/material/CardActionArea';
-import tailwind from '../img/tailwind-svgrepo-com.svg'
+import { Card, CardMedia, CardContent, Typography, CardActionArea, Grid, Box } from "@mui/material"
 import ytp from '../img/youthopia.jpg'
 import rpg from '../img/RPG.png'
 import pinet from '../img/pinet.jpg'
+
+
 const experienceData = [
   {
     title: "PT Prima Integrasi Network",
@@ -83,9 +75,10 @@ export const Experiences = () => {
             }}>
 
           {experienceData.map((exp, idx) => (
-            <Card
+                            <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
+                              <Card
               key={idx}
-              sx={{ width: 320, backgroundColor: "#121212", color: "#fff", cursor: "pointer" }}
+              sx={{ backgroundColor: "#121212", color: "#fff", cursor: "pointer" }}
               onClick={() => handleShow(exp)}
               className="mx-auto"
             >
@@ -93,7 +86,7 @@ export const Experiences = () => {
                 component="img"
                 height="140"
                 image={exp.img}
-                alt="green iguana"
+                alt={exp.title}
             />
               <CardActionArea>
                 <CardContent>
@@ -106,6 +99,8 @@ export const Experiences = () => {
                 </CardContent>
               </CardActionArea>
             </Card>
+              </Grid>
+
           ))}
         </Box>
 

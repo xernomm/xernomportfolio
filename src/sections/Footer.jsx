@@ -1,4 +1,3 @@
-import { CardFooter, Container, Row, Link } from "react-bootstrap"
 import xernom from '../img/xernomm.png'
 import * as I from 'react-bootstrap-icons'
 export const Footer = () => {

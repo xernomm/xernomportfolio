@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Container, Row } from "react-bootstrap"
 import '../styles/Buttons.css'
 import * as I from 'react-bootstrap-icons'
-import me from '../img/RafaelRichie.png'
+import me from '../img/RafaelRichie2.png'
 import Lottie from "lottie-react"
 import developer from '../lottie/Animation - 1713494594395.json'
 import intro from '../lottie/intro.json'
@@ -71,22 +71,21 @@ export const Welcome = ({ scrollToAboutMe }) => {
 
     return(
         <>
-        <Container className='pt-5'>
-            <Row>
-                <div className="col-lg-12 d-lg-flex  align-items-center justify-content-center 100vh">
+        <Container className='vh-100 d-flex justify-content-center align-items-center col-12'>
+                <div className="col-lg-12 d-lg-flex  align-items-center justify-content-center">
 
-                    <div className="col-lg-4 col-sm-12 d-flex justify-content-center align-items-center">
-                        <img src={me} alt="" className="contactMeImg col-lg-7 col-sm-10" style={{ cursor: 'pointer' }}/>
-                        {/* <Lottie animationData={developer} /> */}
+                    <div className="col-lg-6 col-sm-12 d-flex justify-content-center align-items-center">
+                        {/* <img src={me} alt="" className="contactMeImg" style={{ cursor: 'pointer' }}/> */}
+                        <Lottie animationData={developer} />
                     </div>
 
                     <div className="col-lg-6 col-sm-12 d-flex justify-content-center align-items-center my-auto">
-                      <div className="col-10">
+                      <div className="col-9">
 
                         <div className="changeTextBox">
                           <div className='helloContainer'>
 
-                          <h1 className="smTextCenter primary display-5 fw-bold">
+                          <h1 className="smTextCenter primary display-3 fw-bold">
                             {text} <span className='text-white blink'>|</span>
                             </h1>
                           </div>
@@ -101,7 +100,7 @@ export const Welcome = ({ scrollToAboutMe }) => {
                           </p>
                         </div>
                           
-                          <div className="mt-1">
+                          <div className="">
                               <div className="d-lg-flex align-items center">
                                   <div className="d-flex justify-content-center col-lg-12 col-sm-12">
                                       <Button className="get-started-btn col-12" onClick={handleDownloadClick}>
@@ -123,7 +122,6 @@ export const Welcome = ({ scrollToAboutMe }) => {
 
                     
                 </div>
-            </Row>
         </Container>
         </>
     )

@@ -110,7 +110,7 @@ export const Projects = () => {
 
     return (
         <>
-            <Container className="pt-5">
+            <Container className="pt-5 col-12">
             <h1 className="display-3 fw-bold primary">Projects</h1>
             <hr />
                 <Typography variant="subtitle1" className="text-white mb-4">
@@ -131,7 +131,7 @@ export const Projects = () => {
                                     backgroundColor: "#121212",
                                     color: "#fff",
                                     height: "100%",
-                                    cursor: "pointer"
+                                    cursor: "pointer",
                                 }}
                                 onClick={() => handleShow(project)}
                             >

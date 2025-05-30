@@ -57,7 +57,7 @@ export const ContactUs = () => {
 
   return (
     <>
-    <Container>
+    <Container className='mb-5'>
       <Row>
         <div className="pt-5">
         <h1 className="primary display-3 fw-bold">
