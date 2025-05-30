@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/xernomportfolio/static/css/main.7247b383.css",
-    "main.js": "/xernomportfolio/static/js/main.b2d67dce.js",
+    "main.js": "/xernomportfolio/static/js/main.407a36ad.js",
     "static/js/453.77e5cceb.chunk.js": "/xernomportfolio/static/js/453.77e5cceb.chunk.js",
     "static/media/mow.png": "/xernomportfolio/static/media/mow.febe916b989fcb94cb38.png",
     "static/media/shopp.png": "/xernomportfolio/static/media/shopp.c40297d680b4fab38883.png",
@@ -56,11 +56,11 @@
     "static/media/couchbase_logo_icon_170319.svg": "/xernomportfolio/static/media/couchbase_logo_icon_170319.4fcf77cc2dc3857a078f926a3747d052.svg",
     "static/media/tailwind-svgrepo-com.svg": "/xernomportfolio/static/media/tailwind-svgrepo-com.03fdecbfd26561a058e76b84d95184a7.svg",
     "main.7247b383.css.map": "/xernomportfolio/static/css/main.7247b383.css.map",
-    "main.b2d67dce.js.map": "/xernomportfolio/static/js/main.b2d67dce.js.map",
+    "main.407a36ad.js.map": "/xernomportfolio/static/js/main.407a36ad.js.map",
     "453.77e5cceb.chunk.js.map": "/xernomportfolio/static/js/453.77e5cceb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7247b383.css",
-    "static/js/main.b2d67dce.js"
+    "static/js/main.407a36ad.js"
   ]
 }
