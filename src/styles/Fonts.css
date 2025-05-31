@@ -7,37 +7,37 @@
 
 .px35
 {
-    font-size: 35px;
+    font-size: 35px !important;
 }
 
 .px30
 {
-  font-size: 30px;
+  font-size: 30px !important;
 }
 
 .px120
 {
-    font-size: 120px;
+    font-size: 120px !important;
 }
 
 .px80
 {
-    font-size: 80px;
+    font-size: 80px !important;
 }
 
 .px50
 {
-    font-size: 50px;
+    font-size: 50px !important;
 }
 
 .px16
 {
-    font-size: 16px;
+    font-size: 16px !important;
 }
 
 .px18
 {
-    font-size: 18px;
+    font-size: 18px !important;
 }
 
 .primary{
@@ -98,6 +98,19 @@
     .smTextCenter
     {
       text-align: center !important;
+    }
+    .lead
+    {
+      font-size: 13px !important;
+    }
+    .threeDot
+    {
+      scale: 60% !important;
+    }
+    .display-3
+    {
+      font-size: 20px !important;
+
     }
   }
   

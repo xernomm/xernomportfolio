@@ -102,7 +102,7 @@ return (
   <Container className="col-12">
     <Row>
       {/* Sidebar Kategori */}
-      <Col lg={4} sm={12} className="mt-3 pe-5">
+      <Col lg={4} sm={12} className="mt-3 ">
         {/* <h3 className="fw-bold text-white mb-3">Categories</h3> */}
         <div
           className="
@@ -110,22 +110,26 @@ return (
             d-flex
             flex-lg-column
             flex-row flex-nowrap
+            col-lg-8
+            col-sm-12
           "
         >
-{Object.keys(categorizedSkills).map((category, idx) => (
-  <div
-    key={idx}
-    className={`mx-lg-0 mx-2 categoryBox ${
-      selectedCategory === category ? 'active' : ''
-    }`}
-    onClick={() => setSelectedCategory(category)}
-    style={{ cursor: 'pointer' }}
-  >
-    <p className="lead mb-0">{category}</p>
+        {Object.keys(categorizedSkills).map((category, idx) => (
+          <div
+            key={idx}
+            className={`mx-lg-0 mx-1 categoryBox ${
+              selectedCategory === category ? 'active' : ''
+            }`}
+            onClick={() => setSelectedCategory(category)}
+            style={{ cursor: 'pointer' }}
+          >
+            <p className={`lead px16 mb-0 ${
+              selectedCategory === category ? 'fw-bold' : ''
+            }`}>{category}</p>
 
 
-  </div>
-))}
+          </div>
+        ))}
 
         </div>
       </Col>
@@ -134,16 +138,16 @@ return (
       <Col lg={8} sm={12} className="mt-3">
         {selectedCategory ? (
           <>
-          <div className="d-flex justify-content-between align-items-center">
+          <div className="d-lg-flex justify-content-between align-items-center">
 
-            <div className="skillCategoryTitle primary mb-3">
+            <div className="display-3 smNone primary mb-3">
               {selectedCategory}
             </div>
             
             <FloatingLabel
             controlId="floatingInput"
             label="Search"
-            className="mb-3 text-dark col-6"
+            className="mb-3 text-dark col-lg-6 col-sm-12"
             >
             <Form.Control
                 type="text"
@@ -154,7 +158,7 @@ return (
             </FloatingLabel>
           </div>
           <br />
-            <div className="max50 overflowY pe-4">
+            <div className="max50 overflowY pe-2">
 
                     <Row className="skillsets">
                     {categorizedSkills[selectedCategory].skills
@@ -163,17 +167,17 @@ return (
                         )
                         .map((skill, index) => (
 
-                        <Col md={6} sm={12} className="mb-4" key={index}>
+                        <Col md={6} sm={12} className="mb-2" key={index}>
                         <div className="skillBox ">
-                            <div className="col-4">
+                            <div className="col-2">
                                 <img
                                 src={skill.image}
                                 alt={skill.name}
                                 className="skillImage col-12"
                                 />
                             </div>
-                            <div className="col-8">
-                                <div className="skillName mt-2 fw-bold">{skill.name}</div>
+                            <div className="col-10 ps-3">
+                                <div className="lead px16">{skill.name}</div>
                                 <ProgressBar
                                 now={skill.rate}
                                 // label={`${skill.rate}%`}

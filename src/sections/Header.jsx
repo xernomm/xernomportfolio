@@ -41,12 +41,12 @@ export const Header = () => {
         <>
             <header className='fixed-top'>
                 <Navbar expand="lg" bg="dark" data-bs-theme="dark">
-                    <Container>
+                    <Container >
                         <Navbar.Brand onClick={() => scrollToSection('home')}>
                             <img src={xernom} alt="" className='navbarImg'/>
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        <Navbar.Collapse id="basic-navbar-nav">
+                        <Navbar.Collapse  id="basic-navbar-nav">
                             <Nav className="me-auto">
                                 <Nav.Link onClick={() => scrollToSection('home')}>Home</Nav.Link>
                                 <Nav.Link onClick={() => scrollToSection('about')}>About</Nav.Link>
@@ -55,18 +55,6 @@ export const Header = () => {
                                 <Nav.Link onClick={() => scrollToSection('projects')}>Projects</Nav.Link>
                                 <Nav.Link onClick={() => scrollToSection('connect')}>Connect Me</Nav.Link>
                             </Nav>
-                        </Navbar.Collapse>
-                        <Navbar.Collapse className="justify-content-end">
-                            <Form onSubmit={handleSearch}>
-                                <div className="d-flex align-items-center ">
-                                    <FloatingLabel controlId="floatingInput" label="Search.." className="text-muted ">
-                                        <Form.Control className='searchForm' ref={inputRef} type="text" placeholder="Search" style={{ width: "135%", position: "relative", zIndex: "2" }} />
-                                    </FloatingLabel>
-                                    <Button type='submit' className=' searchBtn' style={{ position: "relative", zIndex: "4" }}>
-                                        <I.Search className='lead'/>
-                                    </Button>
-                                </div>
-                            </Form>
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>

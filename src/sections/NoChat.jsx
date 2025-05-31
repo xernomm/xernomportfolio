@@ -11,11 +11,11 @@ const NoChat = ({ onAutoPrompt, samplePrompts, textIndex }) => {
         <Lottie animationData={avatar} loop autoplay />
       </div>
       <h4 className="text-light my-4">
-        Ask me a question or start a conversation by clicking:
+        Ask me a question or start a conversation!
       </h4>
       <Button
         icon={<MdFlashOn />}
-        className="get-started-btn-fill btn d-inline-block col-8 mt-2"
+        className="get-started-btn-fill btn col-lg-5 col-sm-8 mt-2"
         onClick={onAutoPrompt}
       >
         Quick Prompt

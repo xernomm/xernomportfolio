@@ -6,12 +6,11 @@
   
   .skillBox
   {
-    /* margin: 3%; */
+    margin: 1%;
     transition: all ease 0.5s;
-    height: 120px !important;
+    height: 100% !important;
     color: white !important;
-    /* width: 100% !important; */
-    padding: 5% !important;
+    padding: 4% !important;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,7 +55,7 @@
 }
 
 .categoryBox.active {
-  font-weight: 600;
+  font-weight: 1200;
   /* transform: scale(1.05); */
   border-bottom: 2px solid #ffc451;
 }
@@ -70,16 +69,12 @@
 
 
 /* responsif tambahan utk skillBox — agar rapi di mobile */
-@media (max-width: 767px) {
-  .skillBox {
-    padding: 4%;
-  }
-}
+
 
   
   .skillImage {
-    width: 50% !important; 
-    height: 50% !important;
+    width: 80% !important; 
+    height: 80% !important;
   }
   
   .skillName {
@@ -91,9 +86,7 @@
     .skillBox
     {
       padding: 3%;
-      border-radius: 9px;
       transition: all ease 0.5s;
-      height: 80%;
       color: white !important;
       width: 100% !important;
     }
@@ -102,24 +95,24 @@
      width: 100% !important;
     }
     .categoryBox {
-  border: none;
-  color: #fff;
-  white-space: nowrap;      /* supaya teks 1 baris di mobile */
-  margin-bottom: 18px;
-  padding: 3%;
-}
+      border: none;
+      color: #fff;
+      white-space: nowrap;      /* supaya teks 1 baris di mobile */
+      margin-bottom: 18px;
+      padding: 3%;
+    }
 
-.categoryBox.active {
-  font-weight: 600;
-  /* transform: scale(1.05); */
-  border-bottom: 2px solid #ffc451;
-}
+    .categoryBox.active {
+      font-weight: 600;
+      /* transform: scale(1.05); */
+      border-bottom: 2px solid #ffc451;
+    }
 
-.categoryBox:hover
-{
-  background-color: #ffffff50;
-  transition: all 0.6s ease;
+    .categoryBox:hover
+    {
+      background-color: #ffffff50;
+      transition: all 0.6s ease;
 
-}
+    }
   }
   

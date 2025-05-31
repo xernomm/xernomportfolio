@@ -61,7 +61,8 @@
     }
     .changeTextBox
     {
-        height: 200px !important;
+        height: 100px !important;
+        padding: auto !important;
     }
     .changeAboutBox
     {
@@ -82,11 +83,18 @@
     {
         height: 100px;
     }
+    .chatBubble {
+        font-size: 13px;
+    }
+    .helloContainer
+    {
+        height: 10% !important;
+    }
 }
 
 .chatbotfield {
-    height: 65vh;
-    max-height: 65vh;
+    height: 73vh;
+    max-height: 73vh;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
@@ -98,7 +106,7 @@
 
 .helloContainer
 {
-    height: 40%
+    height: 25%
 }
 
 .chatBubble {
