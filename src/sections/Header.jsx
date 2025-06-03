@@ -19,24 +19,6 @@ export const Header = () => {
         }
     };
 
-    const scrollToElement = (element) => {
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-
-    const handleSearch = (e) => {
-        e.preventDefault();
-        const searchText = inputRef.current.value.trim().toLowerCase();
-        const elements = document.querySelectorAll("*");
-        elements.forEach(element => {
-            if (element.textContent.toLowerCase().includes(searchText)) {
-                scrollToElement(element);
-            }
-        });
-        inputRef.current.value = ''; // Clear input field after search
-    };
-
     return(
         <>
             <header className='fixed-top'>
@@ -49,10 +31,12 @@ export const Header = () => {
                         <Navbar.Collapse  id="basic-navbar-nav">
                             <Nav className="me-auto">
                                 <Nav.Link onClick={() => scrollToSection('home')}>Home</Nav.Link>
-                                <Nav.Link onClick={() => scrollToSection('about')}>About</Nav.Link>
-                                <Nav.Link onClick={() => scrollToSection('skills')}>Skills</Nav.Link>
+                                <Nav.Link onClick={() => scrollToSection('educations')}>Education</Nav.Link>
                                 <Nav.Link onClick={() => scrollToSection('experiences')}>Experiences</Nav.Link>
+                                <Nav.Link onClick={() => scrollToSection('skills')}>Skills</Nav.Link>
                                 <Nav.Link onClick={() => scrollToSection('projects')}>Projects</Nav.Link>
+                                <Nav.Link onClick={() => scrollToSection('certifications')}>Certificates</Nav.Link>
+                                <Nav.Link onClick={() => scrollToSection('about')}>Rafael-AI</Nav.Link>
                                 <Nav.Link onClick={() => scrollToSection('connect')}>Connect Me</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>

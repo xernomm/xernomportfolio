@@ -15,6 +15,8 @@ import { Experiences } from './sections/Experiences';
 import { Projects } from './sections/Projects';
 import { Footer } from './sections/Footer';
 import { ContactUs } from './sections/ContactMe';
+import Certifications from './sections/Certificates';
+import { Education } from './sections/Education';
 
 function App() {
 
@@ -34,18 +36,23 @@ function App() {
           <Row id='home'>
             <Welcome scrollToAboutMe={scrollToAboutMe}/>
           </Row>
-
-          <Row className='newRow' id="about">
-            <AboutMe />
-          </Row>
-          <Row className='newRow' id="skills">
-            <TechnicalSkills />
+          <Row className='newRow' id="educations">
+            <Education />
           </Row>
           <Row className='newRow' id="experiences">
             <Experiences />
           </Row>
+          <Row className='newRow' id="skills">
+            <TechnicalSkills />
+          </Row>
           <Row className='newRow' id="projects">
             <Projects />
+          </Row>
+          <Row className='newRow' id="certifications">
+            <Certifications />
+          </Row>
+          <Row className='newRow' id="about">
+            <AboutMe />
           </Row>
           <Row className='newRow' id='connect'>
             <ContactUs />

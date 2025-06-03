@@ -7,7 +7,7 @@
 .contactMeImg {
     width: 75%;
     transition: all 0.5s ease;
-    border-radius: 50% 20% / 10% 40%;
+    border-radius: 50% 
 }
 
 .contactMeImg:hover {
@@ -36,7 +36,7 @@
         display: none !important;
     }
     .contactMeImg {
-        scale: 60%;
+        scale: 75%;
     }
     .introVid
     {

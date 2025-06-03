@@ -116,9 +116,11 @@
       overflow-y: auto;
     }
     
-    .projectBody
+    .small-max65
     {
-      height: 40% !important;
+        max-height: 65vh !important;
+        overflow-y: auto;
+        padding-right: 2%;
     }
    
     .project, .projectInDev {

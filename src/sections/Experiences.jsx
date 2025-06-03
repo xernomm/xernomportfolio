@@ -3,7 +3,8 @@ import { Container, Row, Modal, Button } from "react-bootstrap";
 import { Card, CardMedia, CardContent, Typography, CardActionArea, Grid, Box } from "@mui/material"
 import ytp from '../img/youthopia.jpg'
 import rpg from '../img/RPG.png'
-import pinet from '../img/pinet.jpg'
+import pinet from '../img/jne.jpg'
+
 
 
 const experienceData = [

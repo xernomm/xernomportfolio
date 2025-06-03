@@ -94,7 +94,7 @@ const categorizedSkills = {
 };
 
 return (
-<div className="pt-5">
+<div className="pt-5 container ">
     <h1 className="primary display-3 fw-bold">
         Skills
     </h1>

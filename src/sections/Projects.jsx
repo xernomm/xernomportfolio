@@ -116,6 +116,8 @@ export const Projects = () => {
                 <Typography variant="subtitle1" className="text-white mb-4">
                     These are a few projects I've been working on as a full-stack web developer. Some are still in development.
                 </Typography>
+                        <div className="small-max65">
+
                 <Box
                     sx={{
                         width: '100%',
@@ -125,39 +127,45 @@ export const Projects = () => {
                     }}
                 >
                     {projects.map((project, idx) => (
-                        <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
-                            <Card
-                                sx={{
-                                    backgroundColor: "#121212",
-                                    color: "#fff",
-                                    height: "100%",
-                                    cursor: "pointer",
-                                }}
-                                onClick={() => handleShow(project)}
-                            >
-                                <CardActionArea>
-                                    <CardMedia
-                                        component="img"
-                                        height="140"
-                                        image={project.image}
-                                        alt={project.title}
-                                    />
-                                    <CardContent>
-                                        <Typography gutterBottom variant="h6" component="div">
-                                            {project.title}
-                                        </Typography>
-                                        <Typography variant="body2" color="gray">
-                                            {project.tools}
-                                        </Typography>
-                                        <Typography variant="body2" className="mt-2" color="#bbb">
-                                            {project.status === "Finished" ? "✅ Finished" : "🛠 In Development"}
-                                        </Typography>
-                                    </CardContent>
-                                </CardActionArea>
-                            </Card>
-                        </Grid>
+
+
+                            <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
+                                <Card
+                                    sx={{
+                                        backgroundColor: "#121212",
+                                        color: "#fff",
+                                        height: "100%",
+                                        cursor: "pointer",
+                                    }}
+                                    onClick={() => handleShow(project)}
+                                >
+                                    <CardActionArea>
+                                        <CardMedia
+                                            component="img"
+                                            height="140"
+                                            image={project.image}
+                                            alt={project.title}
+                                        />
+                                        <CardContent>
+                                            <Typography gutterBottom variant="h6" component="div">
+                                                {project.title}
+                                            </Typography>
+                                            <Typography variant="body2" color="gray">
+                                                {project.tools}
+                                            </Typography>
+                                            <Typography variant="body2" className="mt-2" color="#bbb">
+                                                {project.status === "Finished" ? "✅ Finished" : "🛠 In Development"}
+                                            </Typography>
+                                        </CardContent>
+                                    </CardActionArea>
+                                </Card>
+                            </Grid>
+
                     ))}
                 </Box>
+
+                        </div>
+
             </Container>
 
             <Modal

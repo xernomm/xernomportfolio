@@ -3,9 +3,8 @@ import { Button, Container, Row } from "react-bootstrap"
 import '../styles/Buttons.css'
 import * as I from 'react-bootstrap-icons'
 import me from '../img/RafaelRichie2.png'
-import Lottie from "lottie-react"
-import developer from '../lottie/Animation - 1713494594395.json'
-import intro from '../lottie/intro.json'
+import Tooltip from '@mui/material/Tooltip';
+
 
 export const Welcome = ({ scrollToAboutMe }) => {
 
@@ -75,8 +74,8 @@ export const Welcome = ({ scrollToAboutMe }) => {
                 <div className="col-lg-12 d-lg-flex  align-items-center justify-content-center">
 
                     <div className="col-lg-6 col-sm-12 d-flex justify-content-center align-items-center">
-                        {/* <img src={me} alt="" className="contactMeImg" style={{ cursor: 'pointer' }}/> */}
-                        <Lottie animationData={developer} />
+                        <img src={me} alt="" className="contactMeImg" style={{ cursor: 'pointer' }}/>
+                        {/* <Lottie animationData={developer} /> */}
                     </div>
 
                     <div className="col-lg-6 col-sm-12 d-flex justify-content-center align-items-center my-auto">
@@ -99,7 +98,7 @@ export const Welcome = ({ scrollToAboutMe }) => {
                                 </span>
                           </p>
                         </div>
-                          
+
                           <div className="">
                               <div className="d-lg-flex align-items center">
                                   <div className="d-flex justify-content-center col-lg-12 col-sm-12">
@@ -117,6 +116,38 @@ export const Welcome = ({ scrollToAboutMe }) => {
                                   </div>
                               </div>
                           </div>
+                          <div className="d-flex col-12 justify-content-center justify-content-lg-start align-items-center mt-5">
+                              <Tooltip title="Rafael's LinkedIn">
+                                  <a className="col-1 mx-2 primary" href="https://www.linkedin.com/in/rafael-richie-502360250/" target="_blank" rel="noreferrer">
+                                      <I.Linkedin className="lead" />
+                                  </a>
+                              </Tooltip>
+
+                              <Tooltip title="Rafael's Instagram">
+                                  <a className="col-1 mx-2 primary" href="https://www.instagram.com/rfl_rchiee/" target="_blank" rel="noreferrer">
+                                      <I.Instagram className="lead" />
+                                  </a>
+                              </Tooltip>
+
+                              <Tooltip title="Rafael's TikTok">
+                                  <a className="col-1 mx-2 primary" href="https://www.tiktok.com/@raf_rchiee?is_from_webapp=1&sender_device=pc" target="_blank" rel="noreferrer">
+                                      <I.Tiktok className="lead" />
+                                  </a>
+                              </Tooltip>
+
+                              <Tooltip title="Rafael's WhatsApp">
+                                  <a className="col-1 mx-2 primary" href="https://wa.me/6281284300979" target="_blank" rel="noreferrer">
+                                      <I.Whatsapp className="lead" />
+                                  </a>
+                              </Tooltip>
+
+                              <Tooltip title="Rafael's GitHub">
+                                  <a className="col-1 mx-2 primary" href="https://github.com/xernomm" target="_blank" rel="noreferrer">
+                                      <I.Github className="lead" />
+                                  </a>
+                              </Tooltip>
+                          </div>
+
                       </div>
                     </div>
 
