@@ -132,11 +132,11 @@ table {
 }
 
 th, td {
-  border: 1px solid #ccc;  /* <- inilah yang bikin border muncul */
+  border: 1px solid #ccc !important;  /* <- inilah yang bikin border muncul */
   padding: 5px;
   text-align: left;
 }
 
 th {
-  background-color: #dddddde2;
+  background-color: #dddddd5c;
 }
