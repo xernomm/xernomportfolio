@@ -122,3 +122,21 @@
     word-break: break-word;
     white-space: pre-wrap;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 13px;
+}
+
+th, td {
+  border: 1px solid #ccc;  /* <- inilah yang bikin border muncul */
+  padding: 5px;
+  text-align: left;
+}
+
+th {
+  background-color: #dddddd4e;
+}

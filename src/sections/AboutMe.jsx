@@ -16,6 +16,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import rafaelPrompt from '../data/PromptData.js'
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw'
+import '../styles/Background.css'
 
 export const AboutMe = () => {
   const API_KEY = process.env.REACT_APP_OPENROUTER_API_KEY;
