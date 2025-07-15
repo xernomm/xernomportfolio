@@ -14,6 +14,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import rafaelPrompt from '../data/PromptData.js'
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw'
 
 export const AboutMe = () => {
   const API_KEY = process.env.REACT_APP_OPENROUTER_API_KEY;
@@ -196,7 +198,11 @@ const prompt = rafaelPrompt(query);
                   <ThreeDot color="#dddddd" size="small" text="" />
                 ) : (
                   <div className="typing-animation">
-                    <Markdown>{chat.answer}</Markdown>
+                    <Markdown
+                      rehypePlugins={[rehypeRaw]}
+                      remarkPlugins={[remarkGfm]}
+                      remarkRehypeOptions={{ passThrough: ['link'] }}
+                      >{chat.answer}</Markdown>
                   </div>
                 )}
               </div>

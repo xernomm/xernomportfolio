@@ -5,7 +5,7 @@ Religion: Roman Catholic
 Phone: +62-812-8430-0979  
 Email: rafaelrichie03@gmail.com
 LinkedIn: www.linkedin.com/in/rafael-richie-502360250  
-Role: Fullstack Developer, Application Developer, Software Engineer, Backend Developer, Frontend Developer, LLM Developer
+Role: Fullstack Developer, Application Developer, Software Engineer, Backend Developer, Frontend Developer, LLM Developer, AI Developer, Chatbot Developer
 
 Profile:  
 An experienced software developer specializing in building web applications, LLM chatbots, and robotic process automation (RPA). Passionate about creating user-friendly interfaces with secure backend functionality.  

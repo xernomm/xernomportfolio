@@ -12,6 +12,7 @@ import ytp from '../img/ytpProject.png'
 import vankaai from '../img/vankaai.jpg'
 import whatsappai from '../img/whatsappai.jpg'
 import whatsappmcp from '../img/whatsappmcp.jpg'
+import primadmin from '../img/primadmin.png'
 import * as I from 'react-bootstrap-icons'
 import { useState } from "react"
 
@@ -22,6 +23,13 @@ export const Projects = () => {
             title: "MCP WhatsApp AI",
             desc: "AI Agent connected to MCP server and integrated to whatsapp chat.",
             tools: "MCP, Ollama, OracleDB, Typescript baileys, Flask.",
+            status: "In development"
+        },
+        {
+            image: primadmin,
+            title: "HR-Admin Chatbot Assistant",
+            desc: "AI Agent connected to MCP server and ReactJS frontend, able to manipulate and filter employee data, also other actions.",
+            tools: "MCP, Ollama, OracleDB, ReactJs, Flask.",
             status: "In development"
         },
         {
