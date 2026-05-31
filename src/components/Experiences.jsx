@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 const experienceData = [
   {
     id: 1,
-    company: 'PT. Prima Integrasi Network',
+    company: 'PT Prima Integrasi Network',
     position: 'Full Stack Developer',
     date: 'June 2024 – Present',
     image: '/img/jne.jpg',

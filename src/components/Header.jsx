@@ -18,10 +18,13 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Track scroll position for shrink effect
+  // Track scroll position for shrink effect and forcing activeSection 'home' at the top
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
+      if (window.scrollY < 50) {
+        setActiveSection('home');
+      }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
@@ -34,6 +37,12 @@ export default function Header() {
     const observers = [];
 
     const handleIntersect = (entries) => {
+      // Force 'home' active section if scrolled to top
+      if (typeof window !== 'undefined' && window.scrollY < 50) {
+        setActiveSection('home');
+        return;
+      }
+      
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id);

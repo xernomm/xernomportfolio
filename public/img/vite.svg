@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="viteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#BD34FE"/>
+      <stop offset="100%" stop-color="#41D1FF"/>
+    </linearGradient>
+  </defs>
+  <path d="M50 10 L85 25 L85 65 L50 90 L15 65 L15 25 Z" fill="url(#viteGrad)" opacity="0.15"/>
+  <path d="M50 15 L80 28 L80 62 L50 85 L20 62 L20 28 Z" fill="none" stroke="url(#viteGrad)" stroke-width="3"/>
+  <path d="M53 22 L33 52 H47 L38 80 L68 45 H52 Z" fill="#FFC517" filter="drop-shadow(0px 2px 4px rgba(255, 197, 23, 0.4))"/>
+</svg>

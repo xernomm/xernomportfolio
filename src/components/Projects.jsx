@@ -4,6 +4,17 @@ import { useState, useEffect, useRef } from 'react';
 
 const projects = [
   {
+    title: 'Zero No Limits (ZNL)',
+    image: '/img/zeronolimits.png',
+    description:
+      'A production full-stack mobile application and backend service architecture designed for high-performance scalability. Developed independently using React Native for the mobile app, Node.js Express for the robust API gateway, and SQL database systems.',
+    tools: ['React Native', 'NodeJs', 'Express', 'SQL'],
+    status: 'Production',
+    playstore: 'https://play.google.com/store/apps/details?id=com.rakai.ZNL',
+    website: 'https://znlapi.com/',
+    link: null,
+  },
+  {
     title: 'MCP WhatsApp AI',
     image: '/img/whatsappmcp.jpg',
     description:
@@ -106,7 +117,7 @@ const projects = [
 ];
 
 function StatusBadge({ status }) {
-  const isFinished = status === 'Finished';
+  const isFinished = status === 'Finished' || status === 'Production';
   return (
     <span
       className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${
@@ -144,8 +155,6 @@ function ProjectModal({ project, onClose }) {
   }, []);
 
   if (!project) return null;
-
-  const isFinished = project.status === 'Finished';
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -211,9 +220,48 @@ function ProjectModal({ project, onClose }) {
             </div>
           </div>
 
-          {/* Action Button */}
-          <div className="pt-2">
-            {isFinished && project.link ? (
+          {/* Action Buttons */}
+          <div className="pt-2 flex flex-wrap gap-3">
+            {project.playstore && (
+              <a
+                href={project.playstore}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-emerald-500 border border-green-500/30 text-white shadow-lg shadow-green-500/10 hover:shadow-green-500/25 hover:from-green-500 hover:to-emerald-400"
+              >
+                <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M3.609 1.814L13.783 12 3.609 22.186A2.22 2.22 0 0 1 3 20.613V3.387c0-.624.22-1.192.609-1.573zm11.39 8.985l2.766 1.572c.907.515.907 1.357 0 1.872l-2.766 1.572L12.213 12l2.786-2.201zM11.01 10.822L4.695 4.507c.39-.236.879-.272 1.354.002l7.747 4.402-2.786 1.911zm0 2.356l2.786 1.911-7.747 4.402a1.623 1.623 0 0 1-1.354.002l6.315-6.315z"/>
+                </svg>
+                Play Store
+              </a>
+            )}
+            {project.appstore && (
+              <a
+                href={project.appstore}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-500 border border-blue-500/30 text-white shadow-lg shadow-blue-500/10 hover:shadow-blue-500/25 hover:from-blue-500 hover:to-indigo-400"
+              >
+                <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.21.67-2.93 1.49-.62.69-1.16 1.84-1.01 2.96 1.12.09 2.27-.57 2.95-1.39z"/>
+                </svg>
+                App Store
+              </a>
+            )}
+            {project.website && (
+              <a
+                href={project.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-flex items-center gap-2 bg-gradient-to-r from-amber-600 to-yellow-500 border border-amber-500/30 text-white shadow-lg shadow-amber-500/10 hover:shadow-amber-500/25 hover:from-amber-500 hover:to-yellow-400"
+              >
+                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+                Visit Site
+              </a>
+            )}
+            {project.link && (
               <a
                 href={project.link}
                 target="_blank"
@@ -229,7 +277,8 @@ function ProjectModal({ project, onClose }) {
                 </svg>
                 View on GitHub
               </a>
-            ) : (
+            )}
+            {!project.playstore && !project.appstore && !project.website && !project.link && (
               <button
                 disabled
                 className="btn-primary inline-flex items-center gap-2 opacity-40 cursor-not-allowed"

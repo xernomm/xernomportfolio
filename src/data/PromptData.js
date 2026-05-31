@@ -30,7 +30,7 @@ Work Experience:
    - Integrated Stripe payment system using NodeJs for online transactions
    - Implemented UI/UX design based on client requirements
 
-3. **PT. Prima Integrasi Network (June 2024 – Present)**  
+3. **PT Prima Integrasi Network (June 2024 – Present)**  
    - Position: Full Stack Developer
    - Developed LLM-powered chatbot using Streamlit Python and Ollama LLM for internal automation use cases
    - Built agentic AI systems using Model Context Protocol (MCP) for advanced AI-driven process automation
