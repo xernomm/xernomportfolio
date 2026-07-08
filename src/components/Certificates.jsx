@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 
-const CATEGORIES = {
+export const CATEGORIES = {
   'Technology & Systems': [
     { name: 'Enterprise Systems', file: 'certificate4.pdf' },
     { name: 'Information Systems Operations and Business Resiliency', file: 'certificate10.pdf' },
@@ -79,7 +79,7 @@ export default function Certificates() {
     <section
       id="certifications"
       ref={sectionRef}
-      className="reveal relative z-10 px-6 py-24 md:px-12 lg:px-24"
+      className="reveal relative z-10 px-6 py-12 md:px-12 lg:px-24"
     >
       <div className="mx-auto max-w-7xl">
         {/* Header */}

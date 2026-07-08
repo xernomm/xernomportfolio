@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 
 const SAMPLE_PROMPTS = [
   'Ceritakan tentang pengalaman kerja Anda',
@@ -36,7 +36,7 @@ function TypingDots() {
       {[0, 1, 2].map((i) => (
         <span
           key={i}
-          className="inline-block h-2 w-2 rounded-full bg-gold"
+          className="inline-block h-1.5 w-1.5 rounded-full bg-gold"
           style={{
             animation: 'typing-bounce 1.4s ease-in-out infinite',
             animationDelay: `${i * 0.2}s`,
@@ -56,18 +56,18 @@ function TypingDots() {
 // Rate limit dialog
 function RateLimitDialog({ onClose }) {
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div className="modal-overlay z-[150]" onClick={onClose}>
       <div
-        className="glass-card mx-4 max-w-md p-8 text-center"
+        className="glass-card mx-4 max-w-sm p-6 text-center"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="mb-4 text-5xl">⏳</div>
-        <h3 className="mb-2 text-xl font-bold text-gold">Rate Limit Reached</h3>
-        <p className="mb-6 text-sm leading-relaxed text-text-secondary">
+        <div className="mb-3 text-4xl">⏳</div>
+        <h3 className="mb-1 text-lg font-bold text-gold">Rate Limit Reached</h3>
+        <p className="mb-5 text-xs leading-relaxed text-text-secondary">
           You&apos;ve sent too many messages in a short time. Please wait a moment before
           trying again.
         </p>
-        <button onClick={onClose} className="btn-primary px-8">
+        <button onClick={onClose} className="btn-primary w-full py-2.5 text-xs font-semibold">
           Got it
         </button>
       </div>
@@ -78,8 +78,8 @@ function RateLimitDialog({ onClose }) {
 // User avatar icon
 function UserAvatar() {
   return (
-    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gold/20 text-gold">
-      <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold/20 text-gold select-none">
+      <svg className="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24">
         <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
       </svg>
     </div>
@@ -92,7 +92,7 @@ function AIAvatar() {
     <img
       src="/img/chiechat.png"
       alt="Rafael-AI"
-      className="h-8 w-8 shrink-0 rounded-full object-cover"
+      className="h-7 w-7 shrink-0 rounded-full object-cover select-none ring-1 ring-gold/20"
     />
   );
 }
@@ -138,20 +138,34 @@ function MessageContent({ content }) {
 }
 
 export default function AboutMe() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isMaximized, setIsMaximized] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showRateLimit, setShowRateLimit] = useState(false);
   const chatEndRef = useRef(null);
   const inputRef = useRef(null);
-  const sectionRef = useRef(null);
   const chatContainerRef = useRef(null);
+  const prevMessagesLength = useRef(0);
   const [hydrated, setHydrated] = useState(false);
 
   // Hydrate chat history from sessionStorage
   useEffect(() => {
     setMessages(loadChatHistory());
     setHydrated(true);
+  }, []);
+
+  // Listen for custom event to open the chat window
+  useEffect(() => {
+    const handleOpen = () => {
+      setIsOpen(true);
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 300);
+    };
+    window.addEventListener('open-rafael-ai', handleOpen);
+    return () => window.removeEventListener('open-rafael-ai', handleOpen);
   }, []);
 
   // Save to session storage when messages change
@@ -163,21 +177,32 @@ export default function AboutMe() {
 
   // Scroll to bottom on new messages
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, isLoading]);
+    if (chatContainerRef.current) {
+      if (messages.length > prevMessagesLength.current) {
+        chatContainerRef.current.scrollTo({
+          top: chatContainerRef.current.scrollHeight,
+          behavior: 'smooth',
+        });
+      } else {
+        chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+      }
+    }
+    prevMessagesLength.current = messages.length;
+  }, [messages, isLoading, isOpen]);
 
-  // Scroll reveal
+  // Listen to open-rafael-ai event to open the chat window
   useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) section.classList.add('visible');
-      },
-      { threshold: 0.1 }
-    );
-    observer.observe(section);
-    return () => observer.disconnect();
+    const handleOpen = () => {
+      setIsOpen(true);
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 300);
+    };
+
+    window.addEventListener('open-rafael-ai', handleOpen);
+    return () => {
+      window.removeEventListener('open-rafael-ai', handleOpen);
+    };
   }, []);
 
   const sendMessage = useCallback(
@@ -190,6 +215,9 @@ export default function AboutMe() {
       setInput('');
       setIsLoading(true);
 
+      const aiPlaceholder = { role: 'ai', content: '' };
+      setMessages((prev) => [...prev, aiPlaceholder]);
+
       try {
         const res = await fetch('/api/chat', {
           method: 'POST',
@@ -199,6 +227,7 @@ export default function AboutMe() {
 
         if (res.status === 429) {
           setShowRateLimit(true);
+          setMessages((prev) => prev.slice(0, -1));
           setIsLoading(false);
           return;
         }
@@ -207,16 +236,40 @@ export default function AboutMe() {
           throw new Error(`API error: ${res.status}`);
         }
 
-        const data = await res.json();
-        const aiMessage = { role: 'ai', content: data.answer || 'Sorry, I couldn\'t generate a response.' };
-        setMessages((prev) => [...prev, aiMessage]);
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+        let accumulated = '';
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+
+          const chunk = decoder.decode(value, { stream: true });
+          accumulated += chunk;
+
+          setMessages((prev) => {
+            const updated = [...prev];
+            if (updated.length > 0) {
+              updated[updated.length - 1] = {
+                role: 'ai',
+                content: accumulated,
+              };
+            }
+            return updated;
+          });
+        }
       } catch (error) {
         console.error('Chat error:', error);
-        const errorMessage = {
-          role: 'ai',
-          content: 'Sorry, something went wrong. Please try again later.',
-        };
-        setMessages((prev) => [...prev, errorMessage]);
+        setMessages((prev) => {
+          const updated = [...prev];
+          if (updated.length > 0) {
+            updated[updated.length - 1] = {
+              role: 'ai',
+              content: 'Sorry, something went wrong. Please try again later.',
+            };
+          }
+          return updated;
+        });
       } finally {
         setIsLoading(false);
       }
@@ -237,137 +290,194 @@ export default function AboutMe() {
   const isEmpty = messages.length === 0;
 
   return (
-    <section
-      id="about"
-      ref={sectionRef}
-      className="reveal relative z-10 px-6 py-24 md:px-12 lg:px-24"
-    >
-      <div className="mx-auto max-w-4xl">
+    <>
+      {/* Floating Chat Window */}
+      <div className={`rafael-chat-window ${isOpen ? 'open' : ''} ${isMaximized ? 'maximized' : ''}`}>
         {/* Header */}
-        <h2 className="section-title">Rafael-AI</h2>
-        <hr className="section-divider" />
+        <div className="rafael-chat-header">
+          <div className="flex items-center gap-3">
+            <div className="relative">
+              <img
+                src="/img/chiechat.png"
+                alt="Rafael-AI"
+                className="h-9 w-9 rounded-full object-cover ring-1 ring-gold/30 select-none"
+              />
+              <span className="absolute -bottom-0.5 -right-0.5 flex h-3 w-3 items-center justify-center rounded-full bg-green-500 ring-2 ring-[#0a0a0f]">
+                <span className="h-1.5 w-1.5 rounded-full bg-white" />
+              </span>
+            </div>
+            <div className="text-left select-none">
+              <h3 className="text-xs font-bold text-text-primary tracking-wide leading-none mb-0.5">
+                Rafael-AI
+              </h3>
+              <span className="text-[9px] text-green-400 font-semibold flex items-center gap-1 leading-none">
+                <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
+                Online
+              </span>
+            </div>
+          </div>
 
-        {/* Chat container */}
-        <div className="glass-card flex min-h-[70vh] flex-col overflow-hidden">
-          {/* Chat messages area */}
-          <div
-            ref={chatContainerRef}
-            className="flex flex-1 flex-col gap-4 overflow-y-auto p-6"
-          >
-            {isEmpty && hydrated ? (
-              /* Empty state placeholder */
-              <div className="flex flex-1 flex-col items-center justify-center gap-8 py-12">
-                {/* AI avatar large */}
-                <div className="relative">
-                  <img
-                    src="/img/chiechat.png"
-                    alt="Rafael-AI"
-                    className="h-20 w-20 rounded-full object-cover ring-2 ring-gold/30"
-                  />
-                  <span className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-green-500 ring-2 ring-surface">
-                    <span className="h-2 w-2 rounded-full bg-white" />
-                  </span>
-                </div>
+          <div className="flex items-center gap-1">
+            {/* Maximize/Minimize Toggle Button */}
+            <button
+              onClick={() => setIsMaximized((prev) => !prev)}
+              className="text-text-secondary hover:text-text-primary transition-colors p-1.5 rounded-lg hover:bg-white/5"
+              aria-label={isMaximized ? 'Minimize Chat' : 'Maximize Chat'}
+            >
+              {isMaximized ? (
+                /* Minimize Icon (arrows pointing in) */
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v3m0 0H6m3 0L4 4m11-1v3m0 0h3m-3 0l5-5M9 21v-3m0 0H6m3 0l-5 5m11-5v-3m0 0h3m-3 0l5 5" />
+                </svg>
+              ) : (
+                /* Maximize Icon (arrows pointing out) */
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-5V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4M4 20l5-5m11 5v-4m0 0h-4m4 0l-5-5" />
+                </svg>
+              )}
+            </button>
 
-                {/* Animated prompt text */}
-                <div className="text-center">
-                  <p className="animate-fade-in text-lg font-medium text-text-primary">
-                    Ask me a question or start a conversation!
-                  </p>
-                  <p className="mt-2 text-sm text-text-muted">
-                    I can tell you about Rafael&apos;s experience, skills, and more.
-                  </p>
-                </div>
+            {/* Close Button */}
+            <button
+              onClick={() => {
+                setIsOpen(false);
+                setIsMaximized(false);
+              }}
+              className="text-text-secondary hover:text-text-primary transition-colors p-1.5 rounded-lg hover:bg-white/5"
+              aria-label="Close Chat"
+            >
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
 
-                {/* Sample prompt buttons */}
-                <div className="flex flex-wrap justify-center gap-3">
-                  {SAMPLE_PROMPTS.map((prompt) => (
-                    <button
-                      key={prompt}
-                      onClick={() => handlePromptClick(prompt)}
-                      className="rounded-xl border border-border-glass bg-surface-glass px-4 py-2.5 text-sm text-text-secondary transition-all hover:border-gold/30 hover:bg-surface-glass-hover hover:text-gold"
-                    >
-                      {prompt}
-                    </button>
-                  ))}
-                </div>
+        {/* Chat Messages */}
+        <div
+          ref={chatContainerRef}
+          className="rafael-chat-messages"
+        >
+          {isEmpty && hydrated ? (
+            /* Empty State */
+            <div className="flex flex-1 flex-col items-center justify-center gap-5 py-6 text-center">
+              <div className="relative">
+                <img
+                  src="/img/chiechat.png"
+                  alt="Rafael-AI"
+                  className="h-14 w-14 rounded-full object-cover ring-2 ring-gold/30 select-none"
+                />
+                <span className="absolute -bottom-0.5 -right-0.5 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-green-500 ring-2 ring-[#0a0a0f]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                </span>
               </div>
-            ) : (
-              /* Chat messages */
-              <>
-                {messages.map((msg, index) => (
+              <div className="px-4 select-none">
+                <p className="text-xs font-semibold text-text-primary">
+                  Ask me a question or start a conversation!
+                </p>
+                <p className="mt-1 text-[11px] text-text-muted max-w-[220px] mx-auto leading-relaxed">
+                  I can tell you about Rafael&apos;s experience, skills, and more.
+                </p>
+              </div>
+              <div className="flex flex-col gap-1.5 w-full max-w-[260px] px-4">
+                {SAMPLE_PROMPTS.map((prompt) => (
+                  <button
+                    key={prompt}
+                    onClick={() => handlePromptClick(prompt)}
+                    className="rounded-xl border border-border-glass bg-surface-glass px-3.5 py-2 text-[11px] text-text-secondary transition-all hover:border-gold/30 hover:bg-surface-glass-hover hover:text-gold text-left leading-snug font-medium"
+                  >
+                    {prompt}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : (
+            /* Messages List */
+            <>
+              {messages.map((msg, index) => {
+                const isLast = index === messages.length - 1;
+                const showTyping = isLast && msg.role === 'ai' && msg.content === '' && isLoading;
+
+                return (
                   <div
                     key={index}
-                    className={`flex items-end gap-3 animate-fade-in ${
+                    className={`flex items-end gap-2 animate-fade-in ${
                       msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'
                     }`}
                   >
-                    {/* Avatar */}
                     {msg.role === 'user' ? <UserAvatar /> : <AIAvatar />}
-
-                    {/* Message bubble */}
                     <div
                       className={
                         msg.role === 'user' ? 'chat-bubble-user' : 'chat-bubble-ai'
                       }
                     >
                       {msg.role === 'ai' ? (
-                        <MessageContent content={msg.content} />
+                        <div className="text-sm leading-relaxed text-text-primary">
+                          {showTyping ? <TypingDots /> : <MessageContent content={msg.content} />}
+                        </div>
                       ) : (
-                        <span>{msg.content}</span>
+                        <span className="text-sm leading-relaxed">{msg.content}</span>
                       )}
                     </div>
                   </div>
-                ))}
-
-                {/* Loading indicator */}
-                {isLoading && (
-                  <div className="flex items-end gap-3 animate-fade-in">
-                    <AIAvatar />
-                    <div className="chat-bubble-ai">
-                      <TypingDots />
-                    </div>
-                  </div>
-                )}
-              </>
-            )}
-            <div ref={chatEndRef} />
-          </div>
-
-          {/* Input area */}
-          <form
-            onSubmit={handleSubmit}
-            className="flex items-center gap-3 border-t border-border-glass p-4"
-          >
-            <input
-              ref={inputRef}
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Type your message..."
-              className="input-glass flex-1"
-              disabled={isLoading}
-            />
-            <button
-              type="submit"
-              disabled={isLoading || !input.trim()}
-              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gold to-gold-dark text-surface transition-all hover:shadow-lg hover:shadow-gold/20 disabled:cursor-not-allowed disabled:opacity-40"
-            >
-              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                />
-              </svg>
-            </button>
-          </form>
+                );
+              })}
+            </>
+          )}
+          <div ref={chatEndRef} />
         </div>
+
+        {/* Input Form */}
+        <form
+          onSubmit={handleSubmit}
+          className="flex items-center gap-2 border-t border-border-glass p-3 bg-surface-raised/10"
+        >
+          <input
+            ref={inputRef}
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Ask Rafael-AI..."
+            className="input-glass flex-1 py-2 px-3 text-xs"
+            disabled={isLoading}
+          />
+          <button
+            type="submit"
+            disabled={isLoading || !input.trim()}
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gold to-gold-dark text-[#0a0a0f] transition-all hover:shadow-md hover:shadow-gold/20 disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+              />
+            </svg>
+          </button>
+        </form>
       </div>
+
+      {/* Floating Toggle Button */}
+      <button
+        onClick={() => setIsOpen((prev) => !prev)}
+        className="rafael-chat-toggle animate-float"
+        aria-label="Toggle Chat"
+      >
+        <span className="pulse-ring" />
+        {isOpen ? (
+          <svg className="h-6 w-6 text-[#0a0a0f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        ) : (
+          <svg className="h-6 w-6 text-[#0a0a0f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+          </svg>
+        )}
+      </button>
 
       {/* Rate limit dialog */}
       {showRateLimit && <RateLimitDialog onClose={() => setShowRateLimit(false)} />}
-    </section>
+    </>
   );
 }

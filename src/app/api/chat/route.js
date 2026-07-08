@@ -9,7 +9,7 @@ export async function POST(request) {
     }
 
     const prompt = rafaelPrompt(question);
-    const apiKey = process.env.OPENROUTER_API_KEY;
+    const apiKey = process.env.GEMINI_API_KEY;
 
     if (!apiKey) {
       return Response.json(
@@ -19,16 +19,22 @@ export async function POST(request) {
     }
 
     const response = await fetch(
-      "https://openrouter.ai/api/v1/chat/completions",
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse&key=${apiKey}`,
       {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${apiKey}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "z-ai/glm-4.5-air:free",
-          messages: [{ role: "user", content: prompt }],
+          contents: [
+            {
+              parts: [
+                {
+                  text: prompt,
+                },
+              ],
+            },
+          ],
         }),
       }
     );
@@ -47,10 +53,65 @@ export async function POST(request) {
       );
     }
 
-    const data = await response.json();
-    const answer = data.choices?.[0]?.message?.content || "";
+    const encoder = new TextEncoder();
+    const decoder = new TextDecoder();
+    const reader = response.body.getReader();
 
-    return Response.json({ answer });
+    const stream = new ReadableStream({
+      async start(controller) {
+        let buffer = "";
+
+        try {
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+
+            buffer += decoder.decode(value, { stream: true });
+            const lines = buffer.split("\n");
+            buffer = lines.pop() || "";
+
+            for (const line of lines) {
+              const cleanLine = line.trim();
+              if (!cleanLine.startsWith("data: ")) continue;
+
+              try {
+                const jsonStr = cleanLine.slice(6);
+                const data = JSON.parse(jsonStr);
+                const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+                if (text) {
+                  controller.enqueue(encoder.encode(text));
+                }
+              } catch (e) {
+                // Ignore json parse error on incomplete chunks
+              }
+            }
+          }
+
+          // Process remaining data
+          if (buffer.trim().startsWith("data: ")) {
+            try {
+              const jsonStr = buffer.trim().slice(6);
+              const data = JSON.parse(jsonStr);
+              const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+              if (text) {
+                controller.enqueue(encoder.encode(text));
+              }
+            } catch (e) {}
+          }
+          controller.close();
+        } catch (error) {
+          console.error("Stream reading error:", error);
+          controller.error(error);
+        }
+      },
+    });
+
+    return new Response(stream, {
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+      },
+    });
   } catch (error) {
     console.error("Chat API error:", error);
     return Response.json(

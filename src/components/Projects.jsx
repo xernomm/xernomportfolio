@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 
-const projects = [
+export const projects = [
   {
     title: 'Zero No Limits (ZNL)',
     image: '/img/zeronolimits.png',
@@ -308,9 +308,10 @@ function ProjectModal({ project, onClose }) {
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [visibleProjects, setVisibleProjects] = useState(projects);
   const sectionRef = useRef(null);
 
-  // Scroll reveal
+  // Scroll reveal (for title/header elements)
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -329,55 +330,119 @@ export default function Projects() {
     return () => reveals?.forEach((el) => observer.unobserve(el));
   }, []);
 
+  // GSAP ScrollTrigger Batch Animation
+  useEffect(() => {
+    let ctx;
+
+    import('gsap').then(({ gsap }) => {
+      import('gsap/ScrollTrigger').then(({ ScrollTrigger }) => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        ctx = gsap.context(() => {
+          // Set initial animation state
+          gsap.set(".project-card", { y: 30, opacity: 0 });
+
+          // Initialize ScrollTrigger batch animations
+          ScrollTrigger.batch(".project-card", {
+            scroller: ".projects-scroll-container",
+            onEnter: (batch) =>
+              gsap.to(batch, {
+                opacity: 1,
+                y: 0,
+                stagger: { each: 0.05, grid: [1, 3] },
+                overwrite: true,
+                duration: 0.4,
+                ease: "power3.out",
+              }),
+            onLeave: (batch) =>
+              gsap.set(batch, { opacity: 0, y: -30, overwrite: true }),
+            onEnterBack: (batch) =>
+              gsap.to(batch, {
+                opacity: 1,
+                y: 0,
+                stagger: 0.05,
+                overwrite: true,
+                duration: 0.4,
+                ease: "power3.out",
+              }),
+            onLeaveBack: (batch) =>
+              gsap.set(batch, { opacity: 0, y: 30, overwrite: true }),
+          });
+
+          // Refresh ScrollTrigger to compute new card positions
+          ScrollTrigger.refresh();
+        });
+      });
+    });
+
+    return () => {
+      if (ctx) ctx.revert();
+    };
+  }, [visibleProjects]);
+
+  // Infinite Scroll Handler
+  const handleScroll = (e) => {
+    const container = e.target;
+    // Check if scrolled near the bottom (within 150px)
+    if (container.scrollHeight - container.scrollTop <= container.clientHeight + 150) {
+      setVisibleProjects((prev) => [...prev, ...projects]);
+    }
+  };
+
   return (
     <>
       <section
         id="projects"
         ref={sectionRef}
-        className="relative z-10 px-6 py-24 max-w-6xl mx-auto"
+        className="relative z-10 px-6 py-12 max-w-6xl mx-auto"
       >
         <div className="reveal">
           <h2 className="section-title">Projects</h2>
           <hr className="section-divider" />
           <p className="text-text-secondary max-w-xl mb-10">
             These are a few projects I&apos;ve been working on as a full-stack
-            web developer.
+            web developer. Feel free to scroll infinitely to explore!
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, idx) => (
-            <div
-              key={project.title}
-              className="reveal glass-card overflow-hidden cursor-pointer group"
-              style={{ transitionDelay: `${idx * 60}ms` }}
-              onClick={() => setSelectedProject(project)}
-            >
-              {/* Card Image */}
-              <div className="relative h-40 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute bottom-3 right-3">
-                  <StatusBadge status={project.status} />
+        {/* Projects Scroll Container */}
+        <div
+          className="projects-scroll-container reveal"
+          onScroll={handleScroll}
+        >
+          {/* Projects Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-4">
+            {visibleProjects.map((project, idx) => (
+              <div
+                key={`${project.title}-${idx}`}
+                className="project-card glass-card overflow-hidden cursor-pointer group"
+                onClick={() => setSelectedProject(project)}
+              >
+                {/* Card Image */}
+                <div className="relative h-40 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 right-3">
+                    <StatusBadge status={project.status} />
+                  </div>
+                </div>
+
+                {/* Card Body */}
+                <div className="p-5 space-y-3">
+                  <h3 className="text-lg font-bold text-text-primary group-hover:text-gold transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-text-muted text-sm leading-relaxed line-clamp-2">
+                    {project.tools.join(' · ')}
+                  </p>
                 </div>
               </div>
-
-              {/* Card Body */}
-              <div className="p-5 space-y-3">
-                <h3 className="text-lg font-bold text-text-primary group-hover:text-gold transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-text-muted text-sm leading-relaxed line-clamp-2">
-                  {project.tools.join(' · ')}
-                </p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
@@ -391,3 +456,4 @@ export default function Projects() {
     </>
   );
 }
+

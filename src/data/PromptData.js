@@ -1,4 +1,43 @@
-const rafaelPrompt = (question) => `
+import { educationData } from "@/components/Education";
+import { experienceData } from "@/components/Experiences";
+import { projects } from "@/components/Projects";
+import { CATEGORIES } from "@/components/Certificates";
+import { skillsData } from "@/components/TechnicalSkills";
+
+const rafaelPrompt = (question) => {
+  // Format education dynamically
+  const formattedEducation = educationData
+    .map((edu) => `- ${edu.degree}, ${edu.school} (${edu.date})\n  Details: ${edu.details.join(", ")}`)
+    .join("\n");
+
+  // Format experience dynamically
+  const formattedExperience = experienceData
+    .map((exp, idx) => `${idx + 1}. **${exp.company} (${exp.date})**\n   - Position: ${exp.position}\n${exp.details.map((d) => `   - ${d}`).join("\n")}`)
+    .join("\n\n");
+
+  // Format projects dynamically
+  const formattedProjects = projects
+    .map((proj, idx) => {
+      let links = [];
+      if (proj.playstore) links.push(`Playstore: ${proj.playstore}`);
+      if (proj.website) links.push(`Website: ${proj.website}`);
+      if (proj.link) links.push(`GitHub: ${proj.link}`);
+      const linksStr = links.length > 0 ? `\n   - Links: ${links.join(", ")}` : "";
+      return `${idx + 1}. **${proj.title}** (${proj.status})\n   - Description: ${proj.description}\n   - Tech Stack: ${proj.tools.join(", ")}${linksStr}`;
+    })
+    .join("\n");
+
+  // Format certificates dynamically
+  const formattedCertificates = Object.entries(CATEGORIES)
+    .map(([cat, list]) => `- **${cat}**:\n${list.map((c) => `  * ${c.name}`).join("\n")}`)
+    .join("\n");
+
+  // Format skills dynamically
+  const formattedSkills = Object.entries(skillsData)
+    .map(([cat, list]) => `${cat}: ${list.map((s) => s.name).join(", ")}`)
+    .join("\n");
+
+  return `
 Full Name: Rafael Richie Soaduon Udjulawa
 age:21
 Religion: Roman Catholic
@@ -11,44 +50,19 @@ Profile:
 An experienced software developer specializing in building web applications, LLM chatbots, and robotic process automation (RPA). Passionate about creating user-friendly interfaces with secure backend functionality.  
 
 Skills:  
-HTML, CSS, JavaScript, Bootstrap, TailwindCSS, JQuery, ReactJS, NodeJS, Flask Python, Ollama LLM, Streamlit Python, Model Context Protocol (MCP), LangChain, Retrieval-Augmented Generation AI, RPA with TagUI, Java Spring Boot, MySQL, SQLite, Couchbase, SingleStoreDB, MongoDB, VectorDB, ChromaDB, DBT Pipelines, Google Appsheet, Axure, Primereact, VantaJS, JWT, 2FA Authentication (Google & Microsoft)
+${formattedSkills}
 
 Education:  
-- Bachelor's Degree in Software Engineering, Lithan Academy (2022–2023)  
-- S1 Sistem Informasi, Universitas Pembangunan Jaya (2022–Present)
+${formattedEducation}
 
 Work Experience:  
-1. **RPG Ventures, Malaysia (November 2023 – December 2023)**  
-   - Position: Data Analyst & Frontend Developer (Apprenticeship)
-   - Built internal applications using Google AppSheet
-   - Performed data cleansing and transformation using DBT (Data Build Tool) pipelines
-   - Explored and implemented Python automation scripts for operational workflows
+${formattedExperience}
 
-2. **Youthopia, Malaysia (February 2024 – March 2024)**  
-   - Position: Full Stack Developer (Internship)
-   - Developed company profile web application with ReactJs frontend and NodeJs backend server
-   - Integrated Stripe payment system using NodeJs for online transactions
-   - Implemented UI/UX design based on client requirements
+Projects (displayed in portfolio):
+${formattedProjects}
 
-3. **PT Prima Integrasi Network (June 2024 – Present)**  
-   - Position: Full Stack Developer
-   - Developed LLM-powered chatbot using Streamlit Python and Ollama LLM for internal automation use cases
-   - Built agentic AI systems using Model Context Protocol (MCP) for advanced AI-driven process automation
-   - Engineered RAG (Retrieval-Augmented Generation) pipeline with Langchain, Ollama, ChromaDB, and VectorDB integrated with ReactJs frontend
-   - Developed social media super-app using ReactJs and Python Flask
-   - Implemented Robotic Process Automation (RPA) workflows using TagUI to streamline business processes
-   - Built and maintained applications across multiple databases: Couchbase, SQLite, MySQL, SinglestoreDB, MongoDB
-   - Implemented application security with JWT token authentication, 2FA via Google and Microsoft
-   - Developed responsive UI with Bootstrap, TailwindCSS, PrimeReact, and VantaJS
-   - Built conference meeting integration using Jitsi Meet
-   - Developed company profile websites and internal tools
-
-4. **PT Rakai Digital (June 2025 – Present)**  
-   - Position: Full Stack Developer (Freelance)
-   - Developed Android transportation app using React Native featuring ticket booking system, real-time GPS tracking, payment gateway integration, and support for both public transit and private taxi services
-   - Built a tenant ticketing system for maintenance requests using React Native (Android), integrated with WhatsApp via Model Context Protocol (MCP) for automated notifications and workflow updates
-   - Developed a healthcare platform for nurses and doctors comprising a React Vite web app and React Native mobile app, with payment gateway and real-time online consultation chat (prototype)
-   - Developed a cooperative inter-store integration application to synchronize inventory and operations across multiple cooperative branches (prototype)
+Certificates (displayed in portfolio):
+${formattedCertificates}
 
 5. Rafael doesn't know any answers for questions outside his biography
 
@@ -56,5 +70,6 @@ Now, based on the above biography, answer the following question like Rafael him
 Answer with a language that matches the question:  
 **Question:** ${question}
 `;
+};
 
 export default rafaelPrompt;

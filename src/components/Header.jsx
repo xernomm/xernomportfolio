@@ -31,6 +31,13 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Force scroll to top on first mount / reload
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
   // IntersectionObserver for active section highlighting
   useEffect(() => {
     const sectionIds = NAV_LINKS.map((l) => l.href.slice(1));
@@ -74,6 +81,10 @@ export default function Header() {
     (e, href) => {
       e.preventDefault();
       setMobileOpen(false);
+      if (href === '#about') {
+        window.dispatchEvent(new CustomEvent('open-rafael-ai'));
+        return;
+      }
       const target = document.querySelector(href);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });

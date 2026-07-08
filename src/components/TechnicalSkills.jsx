@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useEffect, useRef } from 'react';
 
-const skillsData = {
+export const skillsData = {
   'AI Development': [
     { name: 'Ollama LLM', image: '/img/ollama.png', rate: 85 },
     { name: 'Langchain', image: '/img/langchain-seeklogo.svg', rate: 80 },
@@ -110,7 +110,7 @@ export default function TechnicalSkills() {
     <section
       id="skills"
       ref={sectionRef}
-      className="relative z-10 px-6 py-24 max-w-6xl mx-auto"
+      className="relative z-10 px-6 py-12 max-w-6xl mx-auto"
     >
       <div className="reveal">
         <h2 className="section-title">Skills</h2>

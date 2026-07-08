@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 
-const educationData = [
+export const educationData = [
   {
     id: 1,
     school: 'Lithan Academy',
@@ -20,10 +20,11 @@ const educationData = [
   {
     id: 2,
     school: 'Universitas Pembangunan Jaya',
-    degree: 'S1 Sistem Informasi',
-    date: 'Sept 2022 – Present',
+    degree: 'Sarjana Komputer (S.Kom) Sistem Informasi',
+    date: 'Sept 2022 – Graduated',
     image: '/img/upj.jpg',
     details: [
+      'Graduated / Lulus (GPA: 3.33)',
       'Focused on project management skills, documentation, and system analysis',
       'Tools: Vscode, Microsoft Word',
     ],
@@ -66,7 +67,7 @@ export default function Education() {
     <section
       id="educations"
       ref={sectionRef}
-      className="relative z-10 px-6 py-24 md:px-12 lg:px-24 max-w-7xl mx-auto"
+      className="relative z-10 px-6 py-12 md:px-12 lg:px-24 max-w-7xl mx-auto"
     >
       {/* ── Heading ── */}
       <div className="reveal">

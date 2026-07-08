@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 
-const experienceData = [
+export const experienceData = [
   {
     id: 1,
     company: 'PT Prima Integrasi Network',
@@ -97,7 +97,7 @@ export default function Experiences() {
     <section
       id="experiences"
       ref={sectionRef}
-      className="relative z-10 px-6 py-24 md:px-12 lg:px-24 max-w-7xl mx-auto"
+      className="relative z-10 px-6 py-12 md:px-12 lg:px-24 max-w-7xl mx-auto"
     >
       {/* ── Heading ── */}
       <div className="reveal">
