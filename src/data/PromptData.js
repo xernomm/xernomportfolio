@@ -1,8 +1,8 @@
-import { educationData } from "@/components/Education";
-import { experienceData } from "@/components/Experiences";
-import { projects } from "@/components/Projects";
-import { CATEGORIES } from "@/components/Certificates";
-import { skillsData } from "@/components/TechnicalSkills";
+import { educationData } from "@/data/EducationData";
+import { experienceData } from "@/data/ExperiencesData";
+import { projects } from "@/data/ProjectsData";
+import { CATEGORIES } from "@/data/CertificatesData";
+import { skillsData } from "@/data/TechnicalSkillsData";
 
 const rafaelPrompt = (question) => {
   // Format education dynamically
