@@ -218,10 +218,47 @@ export default function Welcome() {
               Contact Me
             </a>
           </div>
+
+          {/* Mobile-only Social Links & Chat Trigger */}
+          <div className="flex lg:hidden items-center justify-center gap-4 mt-6">
+            {SOCIALS.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ux-social-btn"
+                aria-label={s.label}
+                title={s.label}
+              >
+                {s.icon}
+              </a>
+            ))}
+            <button
+              onClick={openChat}
+              className="ux-social-btn"
+              aria-label="Ask AI"
+              title="Ask AI"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+            </button>
+          </div>
         </div>
 
-        {/* ========== Right — Profile Card ========== */}
-        <div className="flex-shrink-0 w-full max-w-[630px] animate-float">
+        {/* ========== Right — Profile Card (Desktop only) ========== */}
+        <div className="hidden lg:block flex-shrink-0 w-full max-w-[630px] animate-float">
           <div className="ux-parent ux-parent--gold">
             <div className="ux-card">
               {/* Profile image — sleek design with gradient edge-fade to blend yellow bg */}
