@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
+import { FiMaximize2, FiMinimize2, FiX } from 'react-icons/fi';
 
 const SAMPLE_PROMPTS = [
   'Ceritakan tentang pengalaman kerja Anda',
@@ -317,23 +318,18 @@ export default function AboutMe() {
             </div>
           </div>
 
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 flex-shrink-0">
             {/* Maximize/Minimize Toggle Button */}
             <button
               onClick={() => setIsMaximized((prev) => !prev)}
-              className="text-text-secondary hover:text-text-primary transition-colors p-1.5 rounded-lg hover:bg-white/5"
+              className="flex-shrink-0 flex items-center justify-center text-text-secondary hover:text-text-primary transition-colors p-1.5 rounded-lg hover:bg-white/5"
               aria-label={isMaximized ? 'Minimize Chat' : 'Maximize Chat'}
+              suppressHydrationWarning
             >
               {isMaximized ? (
-                /* Minimize Icon (arrows pointing in) */
-                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v3m0 0H6m3 0L4 4m11-1v3m0 0h3m-3 0l5-5M9 21v-3m0 0H6m3 0l-5 5m11-5v-3m0 0h3m-3 0l5 5" />
-                </svg>
+                <FiMinimize2 className="h-4 w-4 flex-shrink-0" />
               ) : (
-                /* Maximize Icon (arrows pointing out) */
-                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-5V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4M4 20l5-5m11 5v-4m0 0h-4m4 0l-5-5" />
-                </svg>
+                <FiMaximize2 className="h-4 w-4 flex-shrink-0" />
               )}
             </button>
 
@@ -343,12 +339,11 @@ export default function AboutMe() {
                 setIsOpen(false);
                 setIsMaximized(false);
               }}
-              className="text-text-secondary hover:text-text-primary transition-colors p-1.5 rounded-lg hover:bg-white/5"
+              className="flex-shrink-0 flex items-center justify-center text-text-secondary hover:text-text-primary transition-colors p-1.5 rounded-lg hover:bg-white/5"
               aria-label="Close Chat"
+              suppressHydrationWarning
             >
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              <FiX className="h-4 w-4 flex-shrink-0" />
             </button>
           </div>
         </div>
@@ -440,11 +435,13 @@ export default function AboutMe() {
             placeholder="Ask Rafael-AI..."
             className="input-glass flex-1 py-2 px-3 text-xs"
             disabled={isLoading}
+            suppressHydrationWarning
           />
           <button
             type="submit"
             disabled={isLoading || !input.trim()}
             className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gold to-gold-dark text-[#0a0a0f] transition-all hover:shadow-md hover:shadow-gold/20 disabled:cursor-not-allowed disabled:opacity-40"
+            suppressHydrationWarning
           >
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -463,6 +460,7 @@ export default function AboutMe() {
         onClick={() => setIsOpen((prev) => !prev)}
         className="rafael-chat-toggle animate-float"
         aria-label="Toggle Chat"
+        suppressHydrationWarning
       >
         <span className="pulse-ring" />
         {isOpen ? (

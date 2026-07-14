@@ -135,18 +135,18 @@ export default function Welcome() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center px-6 py-20 lg:py-0 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center py-20 lg:py-0 overflow-hidden"
     >
       {/* Decorative ambient blurs — positioned far from card to avoid overlap */}
       <div className="pointer-events-none absolute -top-60 -left-60 w-[420px] h-[420px] rounded-full bg-gold/[0.06] blur-[120px]" />
       <div className="pointer-events-none absolute -bottom-60 -right-60 w-[350px] h-[350px] rounded-full bg-gold/[0.04] blur-[100px]" />
 
-      <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20 max-w-6xl w-full mx-auto">
+      <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20 max-w-7xl w-full mx-auto px-6 md:px-12 lg:px-24">
 
         {/* ========== Left — Content ========== */}
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-6 max-w-xl w-full">
           {/* Typing text */}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-text-primary leading-tight min-h-[1.2em]">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-text-primary leading-tight min-h-[2.4em]">
             <span className="inline">
               {displayText || '\u00A0'}
               <span

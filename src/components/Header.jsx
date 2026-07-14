@@ -4,11 +4,14 @@ import { useState, useEffect, useCallback } from 'react';
 
 const NAV_LINKS = [
   { label: 'Home', href: '#home' },
+  { label: 'Featured', href: '#featured' },
   { label: 'Education', href: '#educations' },
   { label: 'Experience', href: '#experiences' },
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
   { label: 'Certificates', href: '#certifications' },
+  { label: 'English', href: '#english' },
+  { label: 'Thesis', href: '#thesis' },
   { label: 'Rafael-AI', href: '#about' },
   { label: 'Connect', href: '#connect' },
 ];
@@ -49,7 +52,7 @@ export default function Header() {
         setActiveSection('home');
         return;
       }
-      
+
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id);
@@ -96,9 +99,8 @@ export default function Header() {
   return (
     <>
       <header
-        className={`glass-nav fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'py-2 shadow-lg shadow-black/30' : 'py-4'
-        }`}
+        className={`glass-nav fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-2 shadow-lg shadow-black/30' : 'py-4'
+          }`}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo */}
@@ -121,18 +123,16 @@ export default function Header() {
                   <a
                     href={href}
                     onClick={(e) => handleNavClick(e, href)}
-                    className={`relative px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
-                      isActive
-                        ? 'text-[var(--color-gold)]'
-                        : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
-                    }`}
+                    className={`relative px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${isActive
+                      ? 'text-[var(--color-gold)]'
+                      : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
+                      }`}
                   >
                     {label}
                     {/* Active indicator dot */}
                     <span
-                      className={`absolute -bottom-0.5 left-1/2 -translate-x-1/2 h-[2px] rounded-full bg-[var(--color-gold)] transition-all duration-300 ${
-                        isActive ? 'w-4 opacity-100' : 'w-0 opacity-0'
-                      }`}
+                      className={`absolute -bottom-0.5 left-1/2 -translate-x-1/2 h-[2px] rounded-full bg-[var(--color-gold)] transition-all duration-300 ${isActive ? 'w-4 opacity-100' : 'w-0 opacity-0'
+                        }`}
                     />
                   </a>
                 </li>
@@ -147,19 +147,16 @@ export default function Header() {
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           >
             <span
-              className={`block h-0.5 w-5 rounded bg-[var(--color-text-primary)] transition-all duration-300 ${
-                mobileOpen ? 'translate-y-[3px] rotate-45' : ''
-              }`}
+              className={`block h-0.5 w-5 rounded bg-[var(--color-text-primary)] transition-all duration-300 ${mobileOpen ? 'translate-y-[3px] rotate-45' : ''
+                }`}
             />
             <span
-              className={`block h-0.5 w-5 rounded bg-[var(--color-text-primary)] transition-all duration-300 mt-1 ${
-                mobileOpen ? 'opacity-0 scale-0' : ''
-              }`}
+              className={`block h-0.5 w-5 rounded bg-[var(--color-text-primary)] transition-all duration-300 mt-1 ${mobileOpen ? 'opacity-0 scale-0' : ''
+                }`}
             />
             <span
-              className={`block h-0.5 w-5 rounded bg-[var(--color-text-primary)] transition-all duration-300 mt-1 ${
-                mobileOpen ? '-translate-y-[9px] -rotate-45' : ''
-              }`}
+              className={`block h-0.5 w-5 rounded bg-[var(--color-text-primary)] transition-all duration-300 mt-1 ${mobileOpen ? '-translate-y-[9px] -rotate-45' : ''
+                }`}
             />
           </button>
         </nav>
@@ -167,17 +164,15 @@ export default function Header() {
 
       {/* Mobile overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
-          mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
+        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
         onClick={() => setMobileOpen(false)}
       />
 
       {/* Mobile slide-in panel */}
       <aside
-        className={`fixed top-0 right-0 z-50 h-full w-72 flex flex-col pt-20 px-6 pb-8 transition-transform duration-300 ease-out lg:hidden ${
-          mobileOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`fixed top-0 right-0 z-50 h-full w-72 flex flex-col pt-20 px-6 pb-8 transition-transform duration-300 ease-out lg:hidden ${mobileOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
         style={{
           background: 'rgba(10, 10, 15, 0.95)',
           backdropFilter: 'blur(24px)',
@@ -193,11 +188,10 @@ export default function Header() {
                 key={sectionId}
                 href={href}
                 onClick={(e) => handleNavClick(e, href)}
-                className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
-                  isActive
-                    ? 'text-[var(--color-gold)] bg-[rgba(255,196,81,0.08)]'
-                    : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-white/5'
-                }`}
+                className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${isActive
+                  ? 'text-[var(--color-gold)] bg-[rgba(255,196,81,0.08)]'
+                  : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-white/5'
+                  }`}
                 style={{
                   transitionDelay: mobileOpen ? `${idx * 40}ms` : '0ms',
                   opacity: mobileOpen ? 1 : 0,

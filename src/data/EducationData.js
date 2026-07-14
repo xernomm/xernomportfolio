@@ -1,28 +1,42 @@
 export const educationData = [
   {
     id: 1,
-    school: 'Lithan Academy',
-    degree: "Bachelor's Degree in Software Engineering (BDSE)",
-    date: 'Sept 2022 – Oct 2023',
-    image: '/img/lithan.png',
+    school: 'Abdi Siswa Bintaro',
+    degree: 'SD, SMP, & SMA (IPA)',
+    date: '2010 – 2022',
+    image: '/img/abdi_siswa.jpg',
+    link: 'https://sekolah.data.kemendikdasmen.go.id/profil-sekolah/A0A697BF-8C28-E211-A2FB-F5E013781DC8',
     details: [
-      'Focused on full-stack web development',
-      'Frontend: ReactJs, NextJs, Tailwind CSS, HTML, CSS, JavaScript, jQuery, Bootstrap',
-      'Backend: NodeJs, Flask, Spring Boot, Java',
-      'Database: SQL, SQLite',
-      'Tools: GitHub, Power BI, AppSheet, Axure, Liferay',
+      'Completed primary (SD), junior high (SMP), and senior high (SMA) education in a unified school system.',
+      'Specialized in the Science (IPA) track—a highly rigorous pathway in Indonesian education emphasizing advanced mathematics, analytical reasoning, physics, chemistry, and biology.',
+      'Developed strong analytical problem-solving capabilities, logical deduction skills, and structured scientific methodologies.',
+      'Laid a solid quantitative foundation that directly transitions into software engineering and algorithmic logic.'
     ],
   },
   {
     id: 2,
+    school: 'Lithan Academy',
+    degree: "Bachelor's Degree in Software Engineering (BDSE)",
+    date: 'Sept 2022 – Oct 2023',
+    image: '/img/lithan.png',
+    link: 'https://www.lithan.com/',
+    details: [
+      'Mastered modern frontend frameworks (React, Next.js) and robust backend engineering architectures (Node.js, Spring Boot, Flask).',
+      'Developed proficiency in database design, SQL querying, data analytics, and automation tools (Power BI, AppSheet).',
+      'Gained hands-on experience in building enterprise-grade full-stack web applications with team-based workflows.'
+    ],
+  },
+  {
+    id: 3,
     school: 'Universitas Pembangunan Jaya',
     degree: 'Sarjana Komputer (S.Kom) Sistem Informasi',
     date: 'Sept 2022 – Graduated',
     image: '/img/upj.jpg',
+    link: 'https://upj.ac.id/',
     details: [
-      'Graduated / Lulus (GPA: 3.33)',
-      'Focused on project management skills, documentation, and system analysis',
-      'Tools: Vscode, Microsoft Word',
+      'Graduated with a GPA of 3.33 in Information Systems (S.Kom), bridging the gap between business strategy and technology.',
+      'Focused on enterprise system architecture, system analysis & design, database management systems, and agile IT project management.',
+      'Acquired skills in business process modeling, technical system documentation, and IT risk assessment.'
     ],
   },
 ];

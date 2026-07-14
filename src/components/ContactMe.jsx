@@ -122,9 +122,9 @@ export default function ContactMe() {
     <section
       id="connect"
       ref={sectionRef}
-      className="reveal relative z-10 px-6 py-12 md:px-12 lg:px-24"
+      className="reveal relative z-10 px-6 py-12 md:px-12 lg:px-24 max-w-7xl mx-auto"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="w-full">
         {/* Header */}
         <h2 className="section-title">Connect Me</h2>
         <hr className="section-divider" />
@@ -189,6 +189,7 @@ export default function ContactMe() {
                   placeholder="Your full name"
                   className="input-glass"
                   required
+                  suppressHydrationWarning
                 />
                 {errors.name && (
                   <p className="mt-1.5 text-xs font-medium text-red-400">{errors.name}</p>
@@ -212,6 +213,7 @@ export default function ContactMe() {
                   placeholder="your.email@example.com"
                   className="input-glass"
                   required
+                  suppressHydrationWarning
                 />
                 {errors.email && (
                   <p className="mt-1.5 text-xs font-medium text-red-400">{errors.email}</p>
@@ -235,6 +237,7 @@ export default function ContactMe() {
                   className="input-glass"
                   rows={5}
                   required
+                  suppressHydrationWarning
                 />
                 {errors.message && (
                   <p className="mt-1.5 text-xs font-medium text-red-400">{errors.message}</p>
@@ -246,6 +249,7 @@ export default function ContactMe() {
                 type="submit"
                 disabled={loading}
                 className="btn-primary flex w-full items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-60"
+                suppressHydrationWarning
               >
                 {loading ? (
                   <>

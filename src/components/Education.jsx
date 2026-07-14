@@ -37,83 +37,104 @@ export default function Education() {
   }, [selectedEdu]);
 
   return (
-    <section
-      id="educations"
-      ref={sectionRef}
-      className="relative z-10 px-6 py-12 md:px-12 lg:px-24 max-w-7xl mx-auto"
-    >
-      {/* ── Heading ── */}
-      <div className="reveal">
-        <h2 className="section-title">Education</h2>
-        <hr className="section-divider" />
-      </div>
+    <>
+      <section
+        id="educations"
+        ref={sectionRef}
+        className="relative z-10 px-6 py-12 md:px-12 lg:px-24 max-w-7xl mx-auto"
+      >
+        {/* ── Heading ── */}
+        <div className="reveal">
+          <h2 className="section-title">Education</h2>
+          <hr className="section-divider" />
+        </div>
 
-      {/* ── Cards grid ── */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-        {educationData.map((edu, idx) => (
-          <div
-            key={edu.id}
-            className="reveal glass-card p-6 cursor-pointer group"
-            style={{ transitionDelay: `${idx * 120}ms` }}
-            onClick={() => setSelectedEdu(edu)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                setSelectedEdu(edu);
-              }
-            }}
-          >
-            {/* School image */}
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-16 h-16 rounded-xl overflow-hidden border border-white/10 flex-shrink-0 bg-white/5">
-                <img
-                  src={edu.image}
-                  alt={edu.school}
-                  className="w-full h-full object-cover"
-                />
+        {/* ── Cards grid ── */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+          {educationData.map((edu, idx) => (
+            <div
+              key={edu.id}
+              className="reveal glass-card p-5 cursor-pointer group flex flex-col justify-between"
+              style={{ transitionDelay: `${idx * 120}ms` }}
+              onClick={() => setSelectedEdu(edu)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setSelectedEdu(edu);
+                }
+              }}
+            >
+              <div>
+                {/* School image */}
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-14 h-14 rounded-xl overflow-hidden border border-white/10 flex-shrink-0 bg-white/5">
+                    <img
+                      src={edu.image}
+                      alt={edu.school}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-base font-bold text-[var(--color-text-primary)] group-hover:text-[var(--color-gold)] transition-colors truncate">
+                      {edu.school}
+                    </h3>
+                    <p className="text-xs text-[var(--color-text-secondary)] mt-0.5 truncate">
+                      {edu.degree}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Date */}
+                <div className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
+                  <svg
+                    className="w-3.5 h-3.5 text-[var(--color-gold)]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                  {edu.date}
+                </div>
               </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="text-lg font-bold text-[var(--color-text-primary)] group-hover:text-[var(--color-gold)] transition-colors truncate">
-                  {edu.school}
-                </h3>
-                <p className="text-sm text-[var(--color-text-secondary)] mt-0.5 truncate">
-                  {edu.degree}
+
+              <div className="flex items-center justify-between mt-4">
+                {/* Hint */}
+                <p className="text-xs text-[var(--color-gold)] opacity-0 group-hover:opacity-100 transition-opacity">
+                  Details →
                 </p>
+                
+                {edu.link && (
+                  <a
+                    href={edu.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-1 text-[11px] text-[var(--color-gold)] hover:text-white transition-colors"
+                  >
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    Website
+                  </a>
+                )}
               </div>
             </div>
-
-            {/* Date */}
-            <div className="flex items-center gap-2 text-sm text-[var(--color-text-muted)]">
-              <svg
-                className="w-4 h-4 text-[var(--color-gold)]"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              {edu.date}
-            </div>
-
-            {/* Hint */}
-            <p className="mt-4 text-xs text-[var(--color-gold)] opacity-0 group-hover:opacity-100 transition-opacity">
-              Click to view details →
-            </p>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </section>
 
       {/* ── Modal ── */}
       {selectedEdu && (
         <div
-          className="modal-overlay"
+          className="modal-overlay z-[150]"
           onClick={() => setSelectedEdu(null)}
         >
           <div
@@ -140,28 +161,43 @@ export default function Education() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div>
-                <h3 className="text-2xl font-bold text-[var(--color-gold)]">
+              <div className="flex-1 min-w-0">
+                <h3 className="text-2xl font-bold text-[var(--color-gold)] truncate">
                   {selectedEdu.school}
                 </h3>
                 <p className="text-[var(--color-text-secondary)] mt-1">
                   {selectedEdu.degree}
                 </p>
-                <div className="flex items-center gap-2 text-sm text-[var(--color-text-muted)] mt-2">
-                  <svg
-                    className="w-4 h-4 text-[var(--color-gold)]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    />
-                  </svg>
-                  {selectedEdu.date}
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2">
+                  <div className="flex items-center gap-1.5 text-sm text-[var(--color-text-muted)]">
+                    <svg
+                      className="w-4 h-4 text-[var(--color-gold)]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                    {selectedEdu.date}
+                  </div>
+                  {selectedEdu.link && (
+                    <a
+                      href={selectedEdu.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-sm text-[var(--color-gold)] hover:text-white transition-colors"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                      Website
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
@@ -184,6 +220,6 @@ export default function Education() {
           </div>
         </div>
       )}
-    </section>
+    </>
   );
 }

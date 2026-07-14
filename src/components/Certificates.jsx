@@ -8,7 +8,9 @@ const CATEGORY_KEYS = Object.keys(CATEGORIES);
 
 function getPreviewImage(pdfFile) {
   const base = pdfFile.replace('.pdf', '');
-  return `/certificates/previews/${base}_page-0001.jpg`;
+  const num = parseInt(base.replace('certificate', ''), 10);
+  const ext = (num >= 17) ? 'png' : 'jpg';
+  return `/certificates/previews/${base}_page-0001.${ext}`;
 }
 
 export default function Certificates() {
@@ -52,9 +54,9 @@ export default function Certificates() {
     <section
       id="certifications"
       ref={sectionRef}
-      className="reveal relative z-10 px-6 py-12 md:px-12 lg:px-24"
+      className="reveal relative z-10 px-6 py-12 md:px-12 lg:px-24 max-w-7xl mx-auto"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="w-full">
         {/* Header */}
         <h2 className="section-title">Certificates</h2>
         <hr className="section-divider" />
@@ -72,9 +74,9 @@ export default function Certificates() {
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`category-pill ${
-                    activeCategory === category ? 'active' : ''
-                  }`}
+                  className={`category-pill ${activeCategory === category ? 'active' : ''
+                    }`}
+                  suppressHydrationWarning
                 >
                   {category}
                   <span className="ml-2 text-xs opacity-60">
@@ -94,11 +96,10 @@ export default function Certificates() {
                   href={`/certificates/${cert.file}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`glass-card group cursor-pointer overflow-hidden transition-all duration-500 ${
-                    visibleCards.has(index)
+                  className={`glass-card group cursor-pointer overflow-hidden transition-all duration-500 ${visibleCards.has(index)
                       ? 'translate-y-0 opacity-100'
                       : 'translate-y-6 opacity-0'
-                  }`}
+                    }`}
                 >
                   {/* Preview image */}
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-black/20">
