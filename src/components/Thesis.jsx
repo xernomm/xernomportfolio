@@ -22,6 +22,7 @@ const TECH_STACK = [
 export default function Thesis() {
   const sectionRef = useRef(null);
   const [coverHover, setCoverHover] = useState(false);
+  const [showAbstract, setShowAbstract] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -143,44 +144,89 @@ export default function Thesis() {
                 Abstract
               </span>
             </div>
-            <p className="text-sm leading-relaxed text-[var(--color-text-secondary)]">
-              Human resource management efficiency is a critical challenge for
-              growing organizations. At PT. Prima Integrasi Network, HR staff
-              frequently spent unproductive time answering repetitive routine
-              inquiries from managers and supervisors regarding employee
-              attendance, leave balances, and personnel data, while managers
-              lacked real-time access to HR information for operational
-              decision-making. This research aimed to design and develop a web
-              application-based chatbot named{' '}
-              <strong className="text-[var(--color-text-primary)]">
-                Primasistant
-              </strong>{' '}
-              to automate HR information management using the{' '}
-              <strong className="text-[var(--color-text-primary)]">
-                Waterfall method
-              </strong>
-              , encompassing requirements analysis, system design,
-              implementation, and testing phases. Primasistant integrates a
-              locally deployed Large Language Model via Ollama (Qwen3), a
-              Retrieval-Augmented Generation system using ChromaDB, and a Model
-              Context Protocol server for direct Oracle Database access, all
-              orchestrated through a five-stage agentic pipeline:{' '}
-              <em className="text-[var(--color-text-primary)]">
-                Intent Escalation, Planning, Execution, Verification, and
-                Response Generation
-              </em>
-              . System validation through blackbox testing on 12 functional
-              scenarios yielded a{' '}
-              <strong className="text-[var(--color-gold)]">
-                100% success rate
-              </strong>
-              , and User Acceptance Testing involving 10 respondents
-              demonstrated a very high acceptance level, with{' '}
-              <strong className="text-[var(--color-gold)]">
-                90% of respondents strongly agreeing
-              </strong>{' '}
-              that the system improved HR department operational efficiency.
-            </p>
+
+            {/* Collapsible abstract text */}
+            <div className="relative">
+              <div
+                className="overflow-hidden transition-all duration-500 ease-in-out"
+                style={{ maxHeight: showAbstract ? '600px' : '4.8em' }}
+              >
+                <p className="text-sm leading-relaxed text-[var(--color-text-secondary)]">
+                  Human resource management efficiency is a critical challenge for
+                  growing organizations. At PT. Prima Integrasi Network, HR staff
+                  frequently spent unproductive time answering repetitive routine
+                  inquiries from managers and supervisors regarding employee
+                  attendance, leave balances, and personnel data, while managers
+                  lacked real-time access to HR information for operational
+                  decision-making. This research aimed to design and develop a web
+                  application-based chatbot named{' '}
+                  <strong className="text-[var(--color-text-primary)]">
+                    Primasistant
+                  </strong>{' '}
+                  to automate HR information management using the{' '}
+                  <strong className="text-[var(--color-text-primary)]">
+                    Waterfall method
+                  </strong>
+                  , encompassing requirements analysis, system design,
+                  implementation, and testing phases. Primasistant integrates a
+                  locally deployed Large Language Model via Ollama (Qwen3), a
+                  Retrieval-Augmented Generation system using ChromaDB, and a Model
+                  Context Protocol server for direct Oracle Database access, all
+                  orchestrated through a five-stage agentic pipeline:{' '}
+                  <em className="text-[var(--color-text-primary)]">
+                    Intent Escalation, Planning, Execution, Verification, and
+                    Response Generation
+                  </em>
+                  . System validation through blackbox testing on 12 functional
+                  scenarios yielded a{' '}
+                  <strong className="text-[var(--color-gold)]">
+                    100% success rate
+                  </strong>
+                  , and User Acceptance Testing involving 10 respondents
+                  demonstrated a very high acceptance level, with{' '}
+                  <strong className="text-[var(--color-gold)]">
+                    90% of respondents strongly agreeing
+                  </strong>{' '}
+                  that the system improved HR department operational efficiency.
+                </p>
+              </div>
+
+              {/* Fade overlay when collapsed */}
+              {!showAbstract && (
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-8 pointer-events-none"
+                  style={{
+                    background:
+                      'linear-gradient(to bottom, transparent, rgba(10,10,15,0.85))',
+                  }}
+                />
+              )}
+            </div>
+
+            {/* Toggle button */}
+            <button
+              onClick={() => setShowAbstract((prev) => !prev)}
+              className="mt-3 flex items-center gap-1.5 text-xs font-semibold
+                         text-[var(--color-gold)] hover:text-[var(--color-gold-light)]
+                         transition-colors duration-200 cursor-pointer"
+              suppressHydrationWarning
+            >
+              {showAbstract ? (
+                <>
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="18 15 12 9 6 15" />
+                  </svg>
+                  See less
+                </>
+              ) : (
+                <>
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                  See more
+                </>
+              )}
+            </button>
           </div>
 
           {/* Tech Stack Pills */}
