@@ -55,59 +55,8 @@ export default function Thesis() {
 
       {/* ── Two-column layout ── */}
       <div className="reveal flex flex-col lg:flex-row gap-10 lg:gap-14 mt-8 items-start">
-        {/* Left — Cover Image */}
-        <div className="w-full lg:w-[40%] flex flex-col items-center gap-5">
-          <div
-            className="relative group cursor-pointer"
-            onMouseEnter={() => setCoverHover(true)}
-            onMouseLeave={() => setCoverHover(false)}
-          >
-            {/* Ambient glow behind the cover */}
-            <div
-              className="absolute -inset-3 rounded-3xl transition-all duration-700 opacity-0 group-hover:opacity-100"
-              style={{
-                background:
-                  'radial-gradient(ellipse at center, rgba(255,196,81,0.12) 0%, transparent 70%)',
-              }}
-            />
 
-            {/* Cover card */}
-            <div
-              className="relative rounded-2xl overflow-hidden border transition-all duration-500"
-              style={{
-                borderColor: coverHover
-                  ? 'rgba(255,196,81,0.3)'
-                  : 'var(--color-border-glass)',
-                boxShadow: coverHover
-                  ? '0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(255,196,81,0.08)'
-                  : '0 8px 40px rgba(0,0,0,0.4)',
-                transform: coverHover ? 'translateY(-4px)' : 'translateY(0)',
-                background: 'var(--color-surface-glass)',
-              }}
-            >
-              <img
-                src="/img/thesis-cover.png"
-                alt="Thesis Cover — Rancang Bangun Chatbot Berbasis Web Aplikasi untuk Manajemen Sumber Daya Manusia"
-                className="w-full h-auto object-contain"
-                draggable={false}
-              />
-            </div>
-          </div>
-
-          {/* Type badge */}
-          <div className="flex items-center gap-2 text-sm text-[var(--color-text-secondary)]">
-            <FiAward className="w-4 h-4 text-[var(--color-gold)]" />
-            <span>
-              Karya Tulis Ilmiah (KTI) ·{' '}
-              <span className="text-[var(--color-text-primary)] font-semibold">
-                Undergraduate
-              </span>
-            </span>
-          </div>
-        </div>
-
-        {/* Right — Details */}
-        <div className="w-full lg:w-[60%] flex flex-col gap-6">
+        <div className="w-full lg:w-[50%] flex flex-col gap-6">
           {/* Title section */}
           <div>
             <span
@@ -127,6 +76,23 @@ export default function Thesis() {
                 PT. Prima Integrasi Network
               </span>
             </h3>
+          </div>
+
+          {/* CTA */}
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="http://eprints.upj.ac.id/id/eprint/13661"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm
+                         border border-[var(--color-border-glass)] text-[var(--color-text-secondary)]
+                         hover:border-[var(--color-gold)] hover:text-[var(--color-gold)]
+                         hover:shadow-[0_0_15px_rgba(255,196,81,0.15)]
+                         transition-all duration-300"
+            >
+              <FiExternalLink className="w-4 h-4" />
+              View on Repository
+            </a>
           </div>
 
           {/* Abstract */}
@@ -301,22 +267,75 @@ export default function Thesis() {
             </span>
           </div>
 
-          {/* CTA */}
-          <div className="flex flex-wrap gap-3">
+
+        </div>
+
+        {/* Left — Cover Image */}
+        <div className="w-full lg:w-[50%] flex flex-col items-center gap-5">
+          <div
+            className="relative group cursor-pointer"
+            onMouseEnter={() => setCoverHover(true)}
+            onMouseLeave={() => setCoverHover(false)}
+          >
+            {/* Ambient glow behind the cover */}
+            <div
+              className="absolute -inset-3 rounded-3xl transition-all duration-700 opacity-0 group-hover:opacity-100"
+              style={{
+                background:
+                  'radial-gradient(ellipse at center, rgba(255,196,81,0.12) 0%, transparent 70%)',
+              }}
+            />
+
+            {/* Cover card wrapper with repository link */}
             <a
               href="http://eprints.upj.ac.id/id/eprint/13661"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm
-                         bg-[var(--color-gold)] text-[#0a0a0f]
-                         hover:shadow-[0_0_20px_rgba(255,196,81,0.3)]
-                         transition-all duration-300"
+              className="relative block rounded-2xl overflow-hidden border transition-all duration-500"
+              style={{
+                borderColor: coverHover
+                  ? 'rgba(255,196,81,0.3)'
+                  : 'var(--color-border-glass)',
+                boxShadow: coverHover
+                  ? '0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(255,196,81,0.08)'
+                  : '0 8px 40px rgba(0,0,0,0.4)',
+                transform: coverHover ? 'translateY(-4px)' : 'translateY(0)',
+                background: 'var(--color-surface-glass)',
+              }}
             >
-              <FiExternalLink className="w-4 h-4" />
-              View on Repository
+              <img
+                src="/img/thesis-cover.png"
+                alt="Thesis Cover — Rancang Bangun Chatbot Berbasis Web Aplikasi untuk Manajemen Sumber Daya Manusia"
+                className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                draggable={false}
+              />
+              
+              {/* Dark overlay & view repository overlay */}
+              <div className="absolute inset-0 bg-black/75 flex flex-col items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[rgba(255,196,81,0.1)] border border-[var(--color-gold)] text-[var(--color-gold)]">
+                  <FiExternalLink className="h-5 w-5" />
+                </div>
+                <span className="text-xs font-bold text-white tracking-wider uppercase">
+                  View Repository
+                </span>
+              </div>
             </a>
           </div>
+
+          {/* Type badge */}
+          <div className="flex items-center gap-2 text-sm text-[var(--color-text-secondary)]">
+            <FiAward className="w-4 h-4 text-[var(--color-gold)]" />
+            <span>
+              Karya Tulis Ilmiah (KTI) ·{' '}
+              <span className="text-[var(--color-text-primary)] font-semibold">
+                Undergraduate
+              </span>
+            </span>
+          </div>
         </div>
+
+        {/* Right — Details */}
+
       </div>
     </section>
   );

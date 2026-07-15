@@ -19,7 +19,7 @@ export async function POST(request) {
     }
 
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse&key=${apiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:streamGenerateContent?alt=sse&key=${apiKey}`,
       {
         method: "POST",
         headers: {
@@ -96,7 +96,7 @@ export async function POST(request) {
               if (text) {
                 controller.enqueue(encoder.encode(text));
               }
-            } catch (e) {}
+            } catch (e) { }
           }
           controller.close();
         } catch (error) {
